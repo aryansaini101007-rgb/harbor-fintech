@@ -63,7 +63,6 @@ export default function PartnerBanksSection() {
         @keyframes hubPulse { 0%, 100% { box-shadow: 0 0 0 0 rgba(67,56,202,0.25); } 50% { box-shadow: 0 0 0 14px rgba(67,56,202,0); } }
         @keyframes approvalsScroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
         .approvals-track { display: flex; width: max-content; animation: approvalsScroll 28s linear infinite; }
-        .approvals-track:hover { animation-play-state: paused; }
       `}</style>
 
       <div className="max-w-[88rem] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-12 items-center mb-8 sm:mb-16">
