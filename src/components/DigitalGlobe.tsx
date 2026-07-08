@@ -258,15 +258,16 @@ function NetworkNodes() {
   )
 }
 
-function GlobeGroup() {
+function GlobeGroup({ isMobile }: { isMobile: boolean }) {
   const groupRef = useRef<THREE.Group>(null)
 
   useFrame((_, delta) => {
-    if (groupRef.current) {
-      // ~42s per full rotation — slow and almost unnoticeable
-      groupRef.current.rotation.y += delta * ((2 * Math.PI) / 42)
-    }
-  })
+  if (isMobile) return
+
+  if (groupRef.current) {
+    groupRef.current.rotation.y += delta * ((2 * Math.PI) / 42)
+  }
+})
 
   return (
     <group ref={groupRef} rotation={[0.1, -2.3, 0]}>
@@ -374,17 +375,17 @@ export default function DigitalGlobe() {
       frameloop={isMobile ? 'demand' : 'always'}
         camera={{ position: [0, 0.1, 6.15], fov: 38 }}
         gl={{
-          antialias: !isMobile,
-          alpha: true,
-          powerPreference: 'high-performance',
-        }}
-        dpr={isMobile ? 1 : [1, 1.5]}
+  antialias: true,
+  alpha: true,
+  powerPreference: 'high-performance',
+}}
+dpr={[1, 1.5]}
         style={{ background: 'transparent' }}
         onCreated={({ gl }) => gl.setClearColor(0x000000, 0)}
       >
-        <MobileFrameLimiter enabled={isMobile} />
+        
         <ambientLight intensity={0.7} />
-        <GlobeGroup />
+       <GlobeGroup isMobile={isMobile} />
       </Canvas>
     </div>
   )

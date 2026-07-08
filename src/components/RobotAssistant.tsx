@@ -210,9 +210,9 @@ export default function RobotAssistantUI() {
        <Canvas
        frameloop={isMobile ? 'demand' : 'always'}
   camera={{ position: [0, 0, 1.8], fov: 45 }}
-  dpr={isMobile ? 1 : [1, 2]}
+dpr={[1, 2]}
   gl={{
-    antialias: !isMobile,
+    antialias: true,
     alpha: true,
     powerPreference: 'high-performance',
   }}
@@ -230,9 +230,7 @@ export default function RobotAssistantUI() {
     color="#B3E5FC"
   />
 
-  {!isMobile && (
-    <pointLight position={[0, 0, 2]} intensity={0.4} />
-  )}
+ <pointLight position={[0, 0, 2]} intensity={0.4} />
 
   <FriendlyRobot isMobile={isMobile} />
 
