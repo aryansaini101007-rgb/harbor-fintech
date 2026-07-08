@@ -4,11 +4,12 @@ import { OrbitControls } from '@react-three/drei';
 import * as THREE from 'three';
 
 // Premium & High-Expression Friendly Robot
-function FriendlyRobot() {
+function FriendlyRobot({ isMobile }: { isMobile: boolean }) {
  const robotGroup = useRef<THREE.Group>(null);
 const headGroup = useRef<THREE.Group>(null);
 
   useFrame((state) => {
+     if (isMobile) return
     const time = state.clock.getElapsedTime();
     
     // Smooth breathing/floating animation
@@ -207,6 +208,7 @@ export default function RobotAssistantUI() {
       {/* Slightly shifted down to line up the head perfectly with the dialog notch */}
       <div className="w-full h-44 filter drop-shadow-xl -mt-2">
        <Canvas
+       frameloop={isMobile ? 'demand' : 'always'}
   camera={{ position: [0, 0, 1.8], fov: 45 }}
   dpr={isMobile ? 1 : [1, 2]}
   gl={{
@@ -232,7 +234,7 @@ export default function RobotAssistantUI() {
     <pointLight position={[0, 0, 2]} intensity={0.4} />
   )}
 
-  <FriendlyRobot />
+  <FriendlyRobot isMobile={isMobile} />
 
   {!isMobile && (
     <OrbitControls
