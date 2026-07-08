@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from 'react'
-import { Canvas, useFrame, useThree } from '@react-three/fiber'
+import { Canvas, useFrame } from '@react-three/fiber'
 import * as THREE from 'three'
 
 const RADIUS = 1.55
@@ -324,32 +324,7 @@ function GlobeGroup({ isMobile }: { isMobile: boolean }) {
     </group>
   )
 }
-function MobileFrameLimiter({ enabled }: { enabled: boolean }) {
-  const { invalidate } = useThree()
 
-  useEffect(() => {
-    if (!enabled) return
-
-    let frameId: number
-    let lastTime = 0
-    const frameInterval = 1000 / 30
-
-    const loop = (time: number) => {
-      if (time - lastTime >= frameInterval) {
-        lastTime = time
-        invalidate()
-      }
-
-      frameId = requestAnimationFrame(loop)
-    }
-
-    frameId = requestAnimationFrame(loop)
-
-    return () => cancelAnimationFrame(frameId)
-  }, [enabled, invalidate])
-
-  return null
-}
 
 export default function DigitalGlobe() {
   const [isMobile, setIsMobile] = useState(false)
