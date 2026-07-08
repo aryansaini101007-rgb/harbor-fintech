@@ -1,4 +1,4 @@
-import { useMemo, useRef } from 'react'
+import { useEffect, useMemo, useRef, useState } from 'react'
 import { Canvas, useFrame } from '@react-three/fiber'
 import * as THREE from 'three'
 
@@ -325,12 +325,33 @@ function GlobeGroup() {
 }
 
 export default function DigitalGlobe() {
+  const [isMobile, setIsMobile] = useState(false)
+
+  useEffect(() => {
+    const media = window.matchMedia('(max-width: 600px)')
+
+    const updateDevice = () => {
+      setIsMobile(media.matches)
+    }
+
+    updateDevice()
+    media.addEventListener('change', updateDevice)
+
+    return () => {
+      media.removeEventListener('change', updateDevice)
+    }
+  }, [])
+
   return (
     <div className="dg-globe-canvas">
       <Canvas
         camera={{ position: [0, 0.1, 6.15], fov: 38 }}
-        gl={{ antialias: true, alpha: true, powerPreference: 'high-performance' }}
-        dpr={[1, 1.5]}
+        gl={{
+          antialias: !isMobile,
+          alpha: true,
+          powerPreference: 'high-performance',
+        }}
+        dpr={isMobile ? 1 : [1, 1.5]}
         style={{ background: 'transparent' }}
         onCreated={({ gl }) => gl.setClearColor(0x000000, 0)}
       >
