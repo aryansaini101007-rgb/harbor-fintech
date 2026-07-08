@@ -185,8 +185,8 @@ export default function RobotAssistantUI() {
 
   return (
     // Fixed wrapper holding everything seamlessly together
-    <div className="harfi-assistant fixed bottom-1 right-4 w-48 h-[275px] z-50 pointer-events-auto flex flex-col items-center justify-end select-none">
-      
+    
+     <div className="harfi-assistant fixed bottom-1 right-4 w-48 h-[275px] z-50 pointer-events-none md:pointer-events-auto flex flex-col items-center justify-end select-none">
       {/* --- CLOUD DIALOGUE BOX COMPONENT --- */}
       {/* Reduced bottom margin to mb-1 to bring it directly closer to the robot's head */}
       <div className="relative mb-1 w-44 bg-white/90 backdrop-blur-sm px-3 py-2 rounded-2xl border border-sky-100 shadow-md text-center flex flex-col justify-center animate-bounce [animation-duration:3s]">
@@ -235,15 +235,15 @@ dpr={[1, 2]}
   <FriendlyRobot isMobile={isMobile} />
 
   {!isMobile && (
-    <OrbitControls
-      enableZoom={false}
-      enablePan={false}
-      maxPolarAngle={Math.PI / 1.8}
-      minPolarAngle={Math.PI / 2.3}
-      maxAzimuthAngle={Math.PI / 6}
-      minAzimuthAngle={-Math.PI / 6}
-    />
-  )}
+  <OrbitControls 
+    enableZoom={false} 
+    enablePan={false}
+    maxPolarAngle={Math.PI / 1.8}
+    minPolarAngle={Math.PI / 2.3}
+    maxAzimuthAngle={Math.PI / 6}
+    minAzimuthAngle={-Math.PI / 6}
+  />
+)}
 </Canvas>
       </div>
 
