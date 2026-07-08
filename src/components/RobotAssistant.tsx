@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import { useEffect, useRef, useState } from 'react'
 import { Canvas, useFrame } from '@react-three/fiber';
 import { OrbitControls } from '@react-three/drei';
 import * as THREE from 'three';
@@ -165,6 +165,23 @@ const headGroup = useRef<THREE.Group>(null);
 }
 
 export default function RobotAssistantUI() {
+  const [isMobile, setIsMobile] = useState(false)
+
+  useEffect(() => {
+    const media = window.matchMedia('(max-width: 600px)')
+
+    const updateDevice = () => {
+      setIsMobile(media.matches)
+    }
+
+    updateDevice()
+    media.addEventListener('change', updateDevice)
+
+    return () => {
+      media.removeEventListener('change', updateDevice)
+    }
+  }, [])
+
   return (
     // Fixed wrapper holding everything seamlessly together
     <div className="harfi-assistant fixed bottom-1 right-4 w-48 h-[275px] z-50 pointer-events-auto flex flex-col items-center justify-end select-none">
@@ -189,26 +206,45 @@ export default function RobotAssistantUI() {
       {/* --- ROBOT CANVAS VIEWPORT --- */}
       {/* Slightly shifted down to line up the head perfectly with the dialog notch */}
       <div className="w-full h-44 filter drop-shadow-xl -mt-2">
-        <Canvas 
-          camera={{ position: [0, 0, 1.8], fov: 45 }}
-          gl={{ antialias: true, alpha: true, powerPreference: "high-performance" }}
-        >
-          <ambientLight intensity={0.8} />
-          <directionalLight position={[2, 4, 3]} intensity={1.5} />
-          <directionalLight position={[-2, 1, 2]} intensity={0.5} color="#B3E5FC" />
-          <pointLight position={[0, 0, 2]} intensity={0.4} />
+       <Canvas
+  camera={{ position: [0, 0, 1.8], fov: 45 }}
+  dpr={isMobile ? 1 : [1, 2]}
+  gl={{
+    antialias: !isMobile,
+    alpha: true,
+    powerPreference: 'high-performance',
+  }}
+>
+  <ambientLight intensity={0.8} />
 
-          <FriendlyRobot />
+  <directionalLight
+    position={[2, 4, 3]}
+    intensity={1.5}
+  />
 
-          <OrbitControls 
-            enableZoom={false} 
-            enablePan={false}
-            maxPolarAngle={Math.PI / 1.8}
-            minPolarAngle={Math.PI / 2.3}
-            maxAzimuthAngle={Math.PI / 6}
-            minAzimuthAngle={-Math.PI / 6}
-          />
-        </Canvas>
+  <directionalLight
+    position={[-2, 1, 2]}
+    intensity={0.5}
+    color="#B3E5FC"
+  />
+
+  {!isMobile && (
+    <pointLight position={[0, 0, 2]} intensity={0.4} />
+  )}
+
+  <FriendlyRobot />
+
+  {!isMobile && (
+    <OrbitControls
+      enableZoom={false}
+      enablePan={false}
+      maxPolarAngle={Math.PI / 1.8}
+      minPolarAngle={Math.PI / 2.3}
+      maxAzimuthAngle={Math.PI / 6}
+      minAzimuthAngle={-Math.PI / 6}
+    />
+  )}
+</Canvas>
       </div>
 
     </div>
