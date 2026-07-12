@@ -1,0 +1,118 @@
+import { Mail, Phone, MapPin } from 'lucide-react'
+import LogoIcon from './LogoIcon'
+
+const COUNTRIES = ['USA', 'UK', 'Canada', 'Germany', 'Australia', 'Ireland']
+const BANK_LINKS = ['SBI Education Loan', 'ICICI Bank Loan', 'HDFC Credila', 'Avanse Financial', 'Prodigy Finance', 'InCred Finance']
+const RESOURCES = ['EMI Calculator', 'Eligibility Checker', 'Interest Rate Guide', 'Document Checklist', 'Blog']
+const COMPANY = ['About Us', 'Careers', 'Press', 'Contact', 'Partner With Us']
+
+export default function FooterSection() {
+  return (
+    <footer className="bg-[#2B2644] px-6 pt-20 pb-10">
+      <div className="max-w-[88rem] mx-auto">
+        <div className="grid grid-cols-2 md:grid-cols-5 gap-10 mb-12">
+          <div className="col-span-2">
+            <div className="flex items-center gap-2 mb-3">
+              <LogoIcon className="w-7 h-7" primaryColor="#ffffff" accentColor="#818CF8" />
+              {/* <span className="text-2xl font-medium tracking-tight text-white">Harbor Finance</span> */}
+            </div>
+            <p className="text-white/50 text-sm mb-1">Fund Your Future</p>
+            <p className="text-white/40 text-sm max-w-xs mt-4 leading-relaxed mb-6">
+              Compare study abroad education loans from 20+ banks and NBFCs — free expert guidance,
+              48-hour sanction, collateral-free options.
+            </p>
+
+            <ul className="flex flex-col gap-3">
+              <li className="flex items-start gap-3 text-white/60 text-sm">
+                <MapPin className="w-4 h-4 mt-0.5 shrink-0 text-[#818CF8]" />
+                <span>Noida , Uttar Pradesh , India</span>
+              </li>
+              <li className="flex items-center gap-3 text-white/60 text-sm">
+                <Phone className="w-4 h-4 shrink-0 text-[#818CF8]" />
+                <a href="tel:+91 9258756581" className="hover:text-white transition-colors duration-200">+91 9258756581</a>
+              </li>
+              <li className="flex items-center gap-3 text-white/60 text-sm">
+                <Mail className="w-4 h-4 shrink-0 text-[#818CF8]" />
+                <a href="mailto:info@harborfinance.com" className="hover:text-white transition-colors duration-200">info@harborfinance.com</a>
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h4 className="text-white text-sm font-medium mb-4">Loans by Country</h4>
+            <ul className="flex flex-col gap-3">
+              {COUNTRIES.map((c) => (
+                <li key={c}>
+                  <a href="#" className="text-white/50 hover:text-white text-sm transition-colors duration-200">
+                    Study Loan for {c}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div>
+            <h4 className="text-white text-sm font-medium mb-4">Loans by Bank</h4>
+            <ul className="flex flex-col gap-3">
+              {BANK_LINKS.map((b) => (
+                <li key={b}>
+                  <a href="#" className="text-white/50 hover:text-white text-sm transition-colors duration-200">
+                    {b}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+         <div className="col-span-2 md:col-span-1 grid grid-cols-2 md:grid-cols-1 gap-x-8 gap-y-8">
+  <div>
+    <h4 className="text-white text-sm font-medium mb-4">
+      Resources
+    </h4>
+
+    <ul className="flex flex-col gap-3">
+      {RESOURCES.map((r) => (
+        <li key={r}>
+          <a
+            href="#"
+            className="text-white/50 hover:text-white text-sm transition-colors duration-200"
+          >
+            {r}
+          </a>
+        </li>
+      ))}
+    </ul>
+  </div>
+
+  <div>
+    <h4 className="text-white text-sm font-medium mb-4">
+      Company
+    </h4>
+
+    <ul className="flex flex-col gap-3">
+      {COMPANY.map((c) => (
+        <li key={c}>
+          <a
+            href="#"
+            className="text-white/50 hover:text-white text-sm transition-colors duration-200"
+          >
+            {c}
+          </a>
+        </li>
+      ))}
+    </ul>
+  </div>
+</div>
+        </div>
+
+        <div className="border-t border-white/10 pt-6 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+          <p className="text-white/40 text-sm">© 2026 Harbor Finance. All rights reserved.</p>
+          <div className="flex gap-6">
+            <a href="#" className="text-white/40 hover:text-white text-sm transition-colors duration-200">Privacy Policy</a>
+            <a href="#" className="text-white/40 hover:text-white text-sm transition-colors duration-200">Terms of Service</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+  )
+}
