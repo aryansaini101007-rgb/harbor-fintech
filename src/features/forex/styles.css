@@ -35,11 +35,16 @@
 }
 
 .forex-site .glass {
-  background: rgb(255 255 255 / 0.65);
-  backdrop-filter: blur(20px) saturate(160%);
-  border: 1px solid rgb(255 255 255 / 0.55);
-}
+  background: rgba(24, 39, 75, 0.42);
 
+  backdrop-filter: blur(22px) saturate(180%);
+
+  border: 1px solid rgba(255,255,255,.12);
+
+  box-shadow:
+    0 15px 40px rgba(15,23,42,.28),
+    inset 0 1px 0 rgba(255,255,255,.08);
+}
 .forex-site .glass-dark {
   background: rgb(78 104 184 / 0.12);
   backdrop-filter: blur(18px) saturate(150%);

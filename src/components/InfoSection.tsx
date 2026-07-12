@@ -227,7 +227,7 @@ export default function InfoSection() {
                     </div>
 
                     <p
-                      className="text-3xl font-semibold mb-3"
+                      className="text-[30px] font-semibold mb-3"
                       style={{
                         color: index === 1 || index === 2 ? '#6d36f2' : '#1768f2',
                       }}

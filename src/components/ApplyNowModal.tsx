@@ -164,7 +164,7 @@ export default function ApplyNowModal({
   }
 }
   if (success) {
-    return (<div className="fixed inset-0 z-[100] flex items-center justify-center bg-black/50"><div className="bg-white dark:bg-zinc-950 rounded-3xl p-10 max-w-md w-full text-center"><CheckCircle2 className="mx-auto text-emerald-500" size={72}/><h2 className="text-3xl font-bold mt-4">Application Submitted!</h2>
+    return (<div className="fixed inset-0 z-[100] flex items-center justify-center bg-black/50"><div className="bg-white dark:bg-zinc-950 rounded-3xl p-10 max-w-md w-full text-center"><CheckCircle2 className="mx-auto text-emerald-500" size={72}/><h2 className="text-[30px] font-bold mt-4">Application Submitted!</h2>
    <p className="mt-5 text-slate-600 dark:text-slate-400 leading-7">
 
 Thank you for choosing Harbor Finance.
@@ -203,7 +203,7 @@ One of our education loan specialists will review your details and contact you s
               Start your journey
             </p>
 
-            <h2 className="text-2xl sm:text-3xl font-semibold text-black dark:text-white">
+            <h2 className="text-2xl sm:text-[30px] font-semibold text-black dark:text-white">
               Apply for an Education Loan
             </h2>
 

@@ -64,7 +64,7 @@ export function CurrencyConverter() {
             <span className="text-sm font-semibold uppercase tracking-[0.2em] text-sky-deep">
               Live Converter
             </span>
-            <h2 className="mt-3 text-3xl font-extrabold text-foreground sm:text-5xl">
+            <h2 className="mt-3 text-[30px] font-extrabold text-foreground sm:text-5xl">
               Know exactly what you pay.
             </h2>
             <p className="mt-4 text-muted-foreground">

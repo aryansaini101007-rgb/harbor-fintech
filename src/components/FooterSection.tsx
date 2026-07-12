@@ -1,12 +1,75 @@
 import { Mail, Phone, MapPin } from 'lucide-react'
 import LogoIcon from './LogoIcon'
 
-const COUNTRIES = ['USA', 'UK', 'Canada', 'Germany', 'Australia', 'Ireland']
-const BANK_LINKS = ['SBI Education Loan', 'ICICI Bank Loan', 'HDFC Credila', 'Avanse Financial', 'Prodigy Finance', 'InCred Finance']
-const RESOURCES = ['EMI Calculator', 'Eligibility Checker', 'Interest Rate Guide', 'Document Checklist', 'Blog']
-const COMPANY = ['About Us', 'Careers', 'Press', 'Contact', 'Partner With Us']
+const COMPANY = [
+  'About Us',
+  'Careers',
+  'Press',
+  'Contact',
+  'Partner With Us',
+]
 
-export default function FooterSection() {
+interface FooterProps {
+  mode?: 'loan' | 'forex'
+}
+
+export default function FooterSection({
+  mode = 'loan',
+}: FooterProps) {
+  const isForex = mode === 'forex'
+
+  const COUNTRIES = isForex
+    ? [
+        'USA',
+        'Canada',
+        'Australia',
+        'UK',
+        'UAE',
+        'Singapore',
+      ]
+    : [
+        'USA',
+        'UK',
+        'Canada',
+        'Germany',
+        'Australia',
+        'Ireland',
+      ]
+
+  const BANK_LINKS = isForex
+    ? [
+        'Forex Card',
+        'Currency Exchange',
+        'International Transfers',
+        'Travel Insurance',
+        'Cash Pickup',
+        'Wire Transfer',
+      ]
+    : [
+        'SBI Education Loan',
+        'ICICI Bank Loan',
+        'HDFC Credila',
+        'Avanse Financial',
+        'Prodigy Finance',
+        'InCred Finance',
+      ]
+
+  const RESOURCES = isForex
+    ? [
+        'Live Exchange Rates',
+        'Forex Calculator',
+        'Travel Guide',
+        'Rate Alerts',
+        'FAQs',
+      ]
+    : [
+        'EMI Calculator',
+        'Eligibility Checker',
+        'Interest Rate Guide',
+        'Document Checklist',
+        'Blog',
+      ]
+
   return (
     <footer className="bg-[#2B2644] px-6 pt-20 pb-10">
       <div className="max-w-[88rem] mx-auto">
@@ -16,10 +79,15 @@ export default function FooterSection() {
               <LogoIcon className="w-7 h-7" primaryColor="#ffffff" accentColor="#818CF8" />
               {/* <span className="text-2xl font-medium tracking-tight text-white">Harbor Finance</span> */}
             </div>
-            <p className="text-white/50 text-sm mb-1">Fund Your Future</p>
+            <p className="text-white/50 text-sm mb-1">
+  {isForex
+    ? "Move Money Globally"
+    : "Fund Your Future"}
+</p>
             <p className="text-white/40 text-sm max-w-xs mt-4 leading-relaxed mb-6">
-              Compare study abroad education loans from 20+ banks and NBFCs — free expert guidance,
-              48-hour sanction, collateral-free options.
+              {isForex
+  ? "Fast, secure and transparent forex services for students studying abroad. Get the best exchange rates, international money transfers and prepaid forex cards."
+  : "Compare study abroad education loans from 20+ banks and NBFCs — free expert guidance, 48-hour sanction, collateral-free options."}
             </p>
 
             <ul className="flex flex-col gap-3">
@@ -33,18 +101,27 @@ export default function FooterSection() {
               </li>
               <li className="flex items-center gap-3 text-white/60 text-sm">
                 <Mail className="w-4 h-4 shrink-0 text-[#818CF8]" />
-                <a href="mailto:info@harborfinance.com" className="hover:text-white transition-colors duration-200">info@harborfinance.com</a>
+                <a
+  href="mailto:ayush@harborfintech.com"
+  className="hover:text-white transition-colors duration-200"
+>
+  ayush@harborfintech.com
+</a>
               </li>
             </ul>
           </div>
 
           <div>
-            <h4 className="text-white text-sm font-medium mb-4">Loans by Country</h4>
+            <h4 className="text-white text-sm font-medium mb-4">{isForex
+    ? "Forex Services"
+    : "Loans by Country"}</h4>
             <ul className="flex flex-col gap-3">
               {COUNTRIES.map((c) => (
                 <li key={c}>
                   <a href="#" className="text-white/50 hover:text-white text-sm transition-colors duration-200">
-                    Study Loan for {c}
+                    {isForex
+    ? c
+    : `Study Loan for ${c}`}
                   </a>
                 </li>
               ))}
@@ -52,7 +129,9 @@ export default function FooterSection() {
           </div>
 
           <div>
-            <h4 className="text-white text-sm font-medium mb-4">Loans by Bank</h4>
+            <h4 className="text-white text-sm font-medium mb-4">{isForex
+    ? "Popular Services"
+    : "Loans by Bank"}</h4>
             <ul className="flex flex-col gap-3">
               {BANK_LINKS.map((b) => (
                 <li key={b}>

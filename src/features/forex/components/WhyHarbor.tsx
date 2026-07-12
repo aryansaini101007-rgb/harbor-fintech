@@ -27,7 +27,7 @@ export function WhyHarbor() {
             <span className="text-sm font-semibold uppercase tracking-[0.2em] text-sky-deep">
               Why Harbor Finance
             </span>
-            <h2 className="mt-3 text-3xl font-extrabold text-foreground sm:text-5xl">
+            <h2 className="mt-3 text-[30px] font-extrabold text-foreground sm:text-5xl">
               Built on trust, priced for you.
             </h2>
           </div>
@@ -51,7 +51,7 @@ export function WhyHarbor() {
           <div className="mt-12 grid grid-cols-2 gap-4 rounded-3xl border border-border bg-card p-8 shadow-soft lg:grid-cols-4">
             {STATS.map((s) => (
               <div key={s.l} className="text-center">
-                <p className="font-display text-3xl font-extrabold text-gradient sm:text-4xl">
+                <p className="font-display text-[30px] font-extrabold text-gradient sm:text-4xl">
                   {s.v}
                 </p>
                 <p className="mt-1 text-sm text-muted-foreground">{s.l}</p>

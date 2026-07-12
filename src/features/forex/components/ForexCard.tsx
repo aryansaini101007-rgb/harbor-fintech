@@ -85,7 +85,7 @@ function TiltCard() {
                 </div>
               </div>
             </div>
-            <div className="pointer-events-none absolute right-6 top-16 h-24 w-24 rounded-full bg-white/20 blur-2xl" />
+            <div className="pointer-events-none absolute right-6 top-16 h-24 w-24 rounded-full bg-blue-500/20 blur-2xl" />
           </div>
 
           {/* BACK — company logo */}
@@ -133,7 +133,7 @@ export function ForexCard() {
             <span className="inline-flex items-center gap-2 rounded-full bg-sky-soft px-3 py-1 text-xs font-bold uppercase tracking-wide text-sky-deep">
               Coming Soon
             </span>
-            <h2 className="mt-4 text-3xl font-extrabold text-foreground sm:text-5xl">
+            <h2 className="mt-4 text-[30px] font-extrabold text-foreground sm:text-5xl">
               The Harbor Premium <span className="text-gradient">Forex Card.</span>
             </h2>
             <p className="mt-4 max-w-lg text-muted-foreground">

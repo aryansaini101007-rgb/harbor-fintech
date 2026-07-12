@@ -12,7 +12,7 @@ export function ContactCTA() {
           <div className="pointer-events-none absolute -bottom-20 -right-10 h-72 w-72 rounded-full bg-white/10 blur-3xl" />
 
           <div className="relative">
-            <h2 className="mx-auto max-w-2xl text-3xl font-extrabold leading-tight sm:text-5xl">
+            <h2 className="mx-auto max-w-2xl text-[30px] font-extrabold leading-tight sm:text-5xl">
               Ready to sail abroad with the best rate?
             </h2>
             <p className="mx-auto mt-4 max-w-xl text-white/85">

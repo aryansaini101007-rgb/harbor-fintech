@@ -80,7 +80,7 @@ export function Hero() {
           />
         </AnimatePresence>
         {/* readability overlays */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/55 via-black/40 to-black/70" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/45 via-black/30 to-black/60" />
         <div
           className="absolute inset-0"
           style={{
@@ -202,12 +202,12 @@ export function Hero() {
           ].map((s) => (
             <div
               key={s.label}
-              className="glass shadow-soft flex flex-col items-start gap-2 rounded-2xl p-4 text-left"
+              className="glass shadow-soft flex flex-col items-start gap-2 rounded-2xl p-3.5 text-left"
             >
-              <span className="grid h-8 w-8 place-items-center rounded-lg bg-white/20 text-white">
+              <span className="grid h-8 w-8 place-items-center rounded-lg bg-blue-500/20 text-white">
                 {s.icon}
               </span>
-              <p className="font-display text-2xl font-extrabold text-white sm:text-3xl">
+              <p className="font-display text-2xl font-extrabold text-white sm:text-[30px]">
                 {s.value}
               </p>
               <p className="text-[10px] font-semibold uppercase tracking-widest text-white/75">

@@ -240,7 +240,7 @@ export function ForexDestinationPage({ slug }: { slug: string }) {
             Top Colleges
           </span>
         </div>
-        <h2 className="mt-3 font-display text-3xl font-extrabold text-foreground sm:text-4xl">
+        <h2 className="mt-3 font-display text-[30px] font-extrabold text-foreground sm:text-4xl">
           Where our students go in {dest.name}
         </h2>
         <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
@@ -311,7 +311,7 @@ export function ForexDestinationPage({ slug }: { slug: string }) {
                 Admission Criteria
               </span>
             </div>
-            <h2 className="mt-3 font-display text-2xl font-bold text-foreground sm:text-3xl">
+            <h2 className="mt-3 font-display text-2xl font-bold text-foreground sm:text-[30px]">
               What you need to apply to {dest.name}
             </h2>
             <ul className="mt-6 grid gap-4 sm:grid-cols-2">
@@ -340,7 +340,7 @@ export function ForexDestinationPage({ slug }: { slug: string }) {
               Latest Updates
             </span>
           </div>
-          <h2 className="mt-3 font-display text-2xl font-bold text-foreground sm:text-3xl">
+          <h2 className="mt-3 font-display text-2xl font-bold text-foreground sm:text-[30px]">
             What changed recently for {dest.name}
           </h2>
           <ul className="mt-6 space-y-4">

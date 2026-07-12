@@ -11,12 +11,12 @@ const PAGE_SEO: Record<string, { title: string; description: string }> = {
     description: 'Harbor Finance helps students compare education loans from leading banks and NBFCs for studying in India and abroad. Get expert guidance for your education loan journey.',
   },
   '/education': {
-    title: 'Education Loans for Study Abroad | Harbor Finance',
+    title: 'Harbor Finance | Education Loans For Study Abroad ',
     description: 'Compare education loans from leading banks and NBFCs with expert guidance from Harbor Finance.',
   },
   '/forex': {
-    title: 'Harbor Finance Forex — Best Rates for Study Abroad & Travel',
-    description: 'Harbor Finance Forex offers the best exchange rates, multi-currency forex cards, and instant international money transfers for students and travellers going abroad.',
+    title: 'Harbor Forex — Move Your Money Faster',
+    description: 'Harbor Forex offers the best exchange rates, multi-currency forex cards, and instant international money transfers for students and travellers going abroad.',
   },
   '/about': {
     title: 'About Harbor Finance',
@@ -40,7 +40,7 @@ function usePathname() {
 function updateSeo(pathname: string) {
   const seo = pathname.startsWith('/forex/destinations/')
     ? {
-        title: 'Study Abroad Destination Guide | Harbor Finance Forex',
+        title: 'Study Abroad Destination Guide | Harbor Forex',
         description: 'Study abroad destination guides, tuition details, forex rates and visa updates from Harbor Finance.',
       }
     : PAGE_SEO[pathname] ?? PAGE_SEO['/']

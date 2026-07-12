@@ -122,7 +122,7 @@ export default function HowItWorksSection() {
                 <div className={`w-11 h-11 rounded-full bg-[#2B2644] flex items-center justify-center step-icon-${i}`}>
                   <s.icon className="w-5 h-5 text-white" />
                 </div>
-                <span className="text-black/20 dark:text-white/20 text-3xl font-medium">{String(i + 1).padStart(2, '0')}</span>
+                <span className="text-black/20 dark:text-white/20 text-[30px] font-medium">{String(i + 1).padStart(2, '0')}</span>
               </div>
               <div>
                 <h3 className="text-black dark:text-white text-lg font-medium mb-2" style={{ letterSpacing: '-0.01em' }}>
