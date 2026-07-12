@@ -1,0 +1,97 @@
+/* Forex keeps its design tokens within this route, so they cannot affect Education. */
+.forex-site {
+  --forex-background: 249 253 255;
+  --forex-foreground: 35 46 63;
+  --forex-card: 255 255 255;
+  --forex-card-foreground: 35 46 63;
+  --forex-popover: 255 255 255;
+  --forex-popover-foreground: 35 46 63;
+  --forex-primary: 62 145 201;
+  --forex-primary-foreground: 250 253 255;
+  --forex-secondary: 239 248 253;
+  --forex-secondary-foreground: 56 68 87;
+  --forex-muted: 244 248 250;
+  --forex-muted-foreground: 107 120 137;
+  --forex-accent: 221 242 253;
+  --forex-accent-foreground: 43 78 112;
+  --forex-border: 228 237 242;
+  --forex-input: 228 237 242;
+  --forex-ring: 62 145 201;
+  --forex-sky: 84 169 230;
+  --forex-sky-deep: 51 106 186;
+  --forex-sky-soft: 222 243 253;
+  background-color: rgb(var(--forex-background));
+  color: rgb(var(--forex-foreground));
+  font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+  overflow-x: hidden;
+}
+
+.forex-site h1,
+.forex-site h2,
+.forex-site h3,
+.forex-site h4 {
+  font-family: Sora, ui-sans-serif, system-ui, sans-serif;
+  letter-spacing: -0.02em;
+}
+
+.forex-site .glass {
+  background: rgb(255 255 255 / 0.65);
+  backdrop-filter: blur(20px) saturate(160%);
+  border: 1px solid rgb(255 255 255 / 0.55);
+}
+
+.forex-site .glass-dark {
+  background: rgb(78 104 184 / 0.12);
+  backdrop-filter: blur(18px) saturate(150%);
+  border: 1px solid rgb(255 255 255 / 0.35);
+}
+
+.forex-site .text-gradient {
+  background: linear-gradient(135deg, rgb(84 169 230), rgb(83 89 207));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.forex-site .shadow-soft {
+  box-shadow: 0 1px 2px rgb(71 108 150 / 0.04), 0 12px 30px -12px rgb(71 108 150 / 0.16);
+}
+
+.forex-site .shadow-lift {
+  box-shadow: 0 30px 60px -25px rgb(68 87 162 / 0.35);
+}
+
+.forex-site .shadow-glow {
+  box-shadow: 0 20px 60px -15px rgb(67 145 218 / 0.5);
+}
+
+.forex-site .bg-gradient-sky {
+  background-image: linear-gradient(135deg, rgb(84 169 230), rgb(83 89 207));
+}
+
+.forex-site .bg-gradient-hero {
+  background-image: radial-gradient(120% 120% at 15% 10%, rgb(238 249 255) 0%, rgb(250 252 255) 45%, rgb(255 255 255) 100%);
+}
+
+.forex-site .bg-gradient-card {
+  background-image: linear-gradient(145deg, rgb(92 177 226), rgb(75 71 185));
+}
+
+@keyframes float-slow {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-18px) rotate(2deg); }
+}
+
+@keyframes ticker {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@keyframes shine {
+  0% { transform: translateX(-120%) rotate(8deg); }
+  100% { transform: translateX(220%) rotate(8deg); }
+}
+
+.forex-site .animate-float {
+  animation: float-slow 7s ease-in-out infinite;
+}

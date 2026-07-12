@@ -86,11 +86,14 @@ export default function InfoSection() {
           0%, 100% { transform: translateY(0); }
           50% { transform: translateY(-9px); }
         }
-
-        @keyframes aboutFlow {
-          from { stroke-dashoffset: 0; }
-          to { stroke-dashoffset: -32; }
-        }
+@keyframes aboutFlow {
+  from {
+    stroke-dashoffset: 13;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
 
         @keyframes aboutPlaneFloat {
           0%, 100% { transform: translate(0, 0) rotate(-12deg); }
@@ -178,7 +181,7 @@ export default function InfoSection() {
                   stroke="url(#journeyGradient)"
                   strokeWidth="2.5"
                   strokeDasharray="5 8"
-                  style={{ animation: 'aboutFlow 2.5s linear infinite' }}
+                  style={{ animation: 'aboutFlow 0.4s linear infinite' }}
                 />
 
                 {[85, 295, 515, 745].map((cx, i) => {

@@ -125,7 +125,7 @@ export default function PartnerBanksSection() {
                 <g key={bank.id}>
                   <path id={pathId} d={`M300 260 L${x} ${y}`} fill="none" stroke="#c7ccf5" strokeWidth="1.5" />
                   <circle r="4" fill="#4338CA">
-                    <animateMotion dur={`${3 + (i % 4)}s`} repeatCount="indefinite" path={`M300 260 L${x} ${y}`} />
+                    <animateMotion dur={`${3 + (i % 4)}s`} repeatCount="indefinite" path={`M${x} ${y} L300 260`} />
                   </circle>
                 </g>
               )

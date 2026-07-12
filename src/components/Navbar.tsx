@@ -9,11 +9,25 @@ import {
   X,
 } from 'lucide-react'
 
-export default function Navbar() {
-  const [mode, setMode] = useState<'loan' | 'forex'>('loan')
+interface NavbarProps {
+  mode?: "loan" | "forex";
+}
+
+export default function Navbar({
+  mode = "loan",
+}: NavbarProps) {
+  const isForex = mode === "forex";
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const [isScrolled, setIsScrolled] = useState(false)
   const [isApplyModalOpen, setIsApplyModalOpen] = useState(false)
+
+  const navigateTo = (nextMode: "loan" | "forex") => {
+    window.location.assign(
+        nextMode === "loan"
+            ? "/education"
+            : "/forex"
+    );
+};
 
   useEffect(() => {
     const handleScroll = () => {
@@ -53,9 +67,9 @@ export default function Navbar() {
                 <div className="bg-white dark:bg-zinc-900 border border-slate-200/80 dark:border-zinc-800/80 p-2 rounded-full shadow-md flex items-center gap-1.5 shrink-0">
 
                   <button
-                    onClick={() => setMode('loan')}
+                    onClick={() => navigateTo('loan')}
                     className={`flex items-center gap-2.5 px-7 py-3 rounded-full text-sm font-semibold tracking-wide transition-all duration-300 ${
-                      mode === 'loan'
+                      !isForex
                         ? 'bg-gradient-to-r from-[#171b5d] to-[#421bb8] text-white shadow-sm'
                         : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
                     }`}
@@ -65,21 +79,16 @@ export default function Navbar() {
                   </button>
 
                   <button
-                    onClick={() => setMode('forex')}
-                    className={`flex items-center gap-2.5 px-7 py-3 rounded-full text-sm font-semibold tracking-wide transition-all duration-300 ${
-                      mode === 'forex'
-                        ? 'bg-gradient-to-r from-[#171b5d] to-[#421bb8] text-white shadow-sm'
-                        : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
-                    }`}
-                  >
-                    <Repeat2 size={18} />
-
-                    <span>Forex</span>
-
-                    <span className="text-[8px] uppercase tracking-wider px-1.5 py-0.5 bg-[#8b5cf6] text-white rounded-full font-bold">
-                      Launching Soon
-                    </span>
-                  </button>
+  onClick={() => navigateTo('forex')}
+  className={`flex items-center gap-2.5 px-7 py-3 rounded-full text-sm font-semibold tracking-wide transition-all duration-300 ${
+    isForex
+      ? 'bg-gradient-to-r from-[#171b5d] to-[#421bb8] text-white shadow-sm'
+      : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
+  }`}
+>
+  <Repeat2 size={18} />
+  <span>Forex</span>
+</button>
 
                 </div>
               </div>
@@ -92,7 +101,7 @@ export default function Navbar() {
                   onClick={() => setIsApplyModalOpen(true)}
                   className="px-6 py-2.5 bg-gradient-to-r from-[#2563eb] to-[#6d4aff] hover:from-[#1d4ed8] hover:to-[#5b21b6] text-white text-sm font-medium rounded-full transition-all duration-300 shadow-md hover:shadow-lg hover:scale-[1.02] active:scale-95 flex items-center gap-2 whitespace-nowrap"
                 >
-                  <span>Apply Now</span>
+                  <span>{isForex ? "Pay Now" : "Apply Now"}</span>
                   <span>→</span>
                 </button>
               </div>
@@ -133,11 +142,11 @@ export default function Navbar() {
 
                 <button
                   onClick={() => {
-                    setMode('loan')
+                    navigateTo('loan')
                     setIsMobileMenuOpen(false)
                   }}
                   className={`flex items-center justify-center gap-2 py-3 px-2 rounded-lg text-xs sm:text-sm font-semibold transition-all ${
-                    mode === 'loan'
+                    !isForex
                       ? 'bg-[#171b5d] text-white shadow'
                       : 'text-slate-600 dark:text-slate-400'
                   }`}
@@ -148,26 +157,22 @@ export default function Navbar() {
 
                 <button
                   onClick={() => {
-                    setMode('forex')
+                    navigateTo('forex')
                     setIsMobileMenuOpen(false)
                   }}
                   className={`flex items-center justify-center gap-1.5 py-3 px-2 rounded-lg text-xs sm:text-sm font-semibold transition-all ${
-                    mode === 'forex'
+                    isForex
                       ? 'bg-[#171b5d] text-white shadow'
                       : 'text-slate-600 dark:text-slate-400'
                   }`}
                 >
                   <Repeat2 size={16} />
                   <span>Forex</span>
-
-                  <span className="text-[7px] px-1 py-0.5 bg-[#8b5cf6] text-white rounded-full font-bold">
-                    SOON
-                  </span>
                 </button>
 
               </div>
 
-              {/* Mobile Apply Now */}
+              {/* Mobile {isForex ? "Pay Now" : "Apply Now"} */}
               <button
                 onClick={() => {
                   setIsMobileMenuOpen(false)
@@ -175,7 +180,7 @@ export default function Navbar() {
                 }}
                 className="w-full py-3 bg-gradient-to-r from-[#2563eb] to-[#6d4aff] text-white text-center text-sm font-semibold rounded-xl shadow-md"
               >
-                Apply Now →
+                {isForex ? "Pay Now" : "Apply Now"} →
               </button>
 
             </div>
