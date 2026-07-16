@@ -100,7 +100,7 @@ export default function PartnerBanksSection() {
                 <Avatar key={s.seed} seed={s.seed} name={s.name} size={36} />
               ))}
               <span className="w-9 h-9 rounded-full border-2 border-white dark:border-[#14173a] bg-black dark:bg-white flex items-center justify-center text-white dark:text-black text-[10px] font-semibold">
-                +15K
+                +4K
               </span>
             </div>
             <p className="text-black/60 dark:text-white/60 text-sm">Students and growing</p>

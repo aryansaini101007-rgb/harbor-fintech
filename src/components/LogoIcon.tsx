@@ -1,21 +1,14 @@
 interface LogoIconProps {
   className?: string
-  primaryColor?: string
-  accentColor?: string
 }
 
-export default function LogoIcon({ className }: LogoIconProps) {
+export default function LogoIcon({ className = "" }: LogoIconProps) {
   return (
-    <img 
-      src="/logos/company-logo-header.png" 
-      alt="Harbor Finance Logo"
+    <img
+      src="/logos/harbor-finance-logo.png"
+      alt="Harbor Finance"
       className={className}
-      style={{
-        width: '100%',
-        height: 'auto',
-        maxWidth: '200px',
-        display: 'block'
-      }}
+      draggable={false}
     />
   )
 }

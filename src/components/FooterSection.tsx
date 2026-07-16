@@ -76,7 +76,19 @@ export default function FooterSection({
         <div className="grid grid-cols-2 md:grid-cols-5 gap-10 mb-12">
           <div className="col-span-2">
             <div className="flex items-center gap-2 mb-3">
-              <LogoIcon className="w-7 h-7" primaryColor="#ffffff" accentColor="#818CF8" />
+              {isForex ? (
+  <img
+    src="/logos/harbor-forex-logo.png"
+    alt="Harbor Forex"
+    className="h-14 w-auto"
+  />
+) : (
+  <LogoIcon
+    className="w-7 h-7"
+    primaryColor="#ffffff"
+    accentColor="#818CF8"
+  />
+)}
               {/* <span className="text-2xl font-medium tracking-tight text-white">Harbor Finance</span> */}
             </div>
             <p className="text-white/50 text-sm mb-1">

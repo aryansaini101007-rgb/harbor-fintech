@@ -71,12 +71,12 @@ function TiltCard() {
                 </p>
                 <div className="mt-3 flex items-end justify-between">
                   <div className="leading-tight">
-                    <p className="text-[9px] uppercase tracking-widest opacity-70">Card holder</p>
-                    <span className="text-sm font-semibold tracking-wide">AARAV SHARMA</span>
+                    <p className="text-[9px] uppercase tracking-widest opacity-70">Card holder Name</p>
+                    <span className="text-sm font-semibold tracking-wide">***** *****</span>
                   </div>
                   <div className="text-right leading-tight">
                     <p className="text-[9px] uppercase tracking-widest opacity-70">Valid thru</p>
-                    <span className="text-sm font-semibold">08 / 30</span>
+                    <span className="text-sm font-semibold">MM / YY</span>
                   </div>
                   {/* VISA sign */}
                   <span className="font-display text-2xl font-black italic tracking-tight text-white drop-shadow">

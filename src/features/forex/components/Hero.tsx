@@ -80,7 +80,7 @@ export function Hero() {
           />
         </AnimatePresence>
         {/* readability overlays */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/45 via-black/30 to-black/60" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/65 via-black/45 to-black/75" />
         <div
           className="absolute inset-0"
           style={{
@@ -140,24 +140,65 @@ export function Hero() {
         </motion.div>
 
         {/* Headline */}
-        <motion.h1
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.05 }}
-          className="mt-8 text-balance font-display text-4xl font-extrabold leading-[1.03] text-white sm:text-6xl lg:text-7xl"
-          style={{ textShadow: "0 4px 24px rgba(0,0,0,0.35)" }}
-        >
-          Your journey abroad,
-          <span className="mt-1 block bg-gradient-to-r from-sky-200 via-white to-sky-200 bg-clip-text text-transparent">
-            starts with the right rate.
-          </span>
-        </motion.h1>
+      <motion.h1
+  initial={{ opacity: 0, y: 30 }}
+  animate={{
+    opacity: 1,
+    y: [0, -3, 0],
+  }}
+  transition={{
+    opacity: {
+      duration: 1,
+      ease: [0.22, 1, 0.36, 1],
+    },
+    y: {
+      duration: 4,
+      repeat: Infinity,
+      ease: "easeInOut",
+    },
+  }}
+  className="mt-8 text-balance leading-[0.9]"
+>
+<span
+  className="block text-5xl md:text-7xl lg:text-[7rem] font-black"
+  style={{
+    fontFamily: "'Sora', sans-serif",
+    letterSpacing: "-0.08em",
+    lineHeight: "0.9",
+    color: "#ffffff",
+    textShadow:
+      "0 12px 40px rgba(0,0,0,.55), 0 2px 8px rgba(0,0,0,.35)",
+  }}
+>
+  Your journey abroad,
+</span>
+<span
+  className="block mt-2 text-5xl md:text-7xl lg:text-[7rem] font-black"
+  style={{
+    fontFamily: "'Sora', sans-serif",
+    letterSpacing: "-0.08em",
+    lineHeight: "0.9",
+    background:
+      "linear-gradient(135deg,#FFFFFF 0%,#C8FFF3 18%,#73F5D7 38%,#00BB94 62%,#0F7CFF 100%)",
+    WebkitBackgroundClip: "text",
+    WebkitTextFillColor: "transparent",
+    backgroundClip: "text",
+    filter:
+      "drop-shadow(0 8px 28px rgba(0,187,148,.35))",
+  }}
+>
+  starts with the right rate.
+</span>
+</motion.h1>
 
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.15 }}
-          className="mt-6 max-w-2xl text-pretty text-base leading-relaxed text-white/85 sm:text-lg"
+          className="mt-8 max-w-3xl text-pretty text-xl sm:text-2xl leading-relaxed font-medium text-white"
+style={{
+  textShadow: "0 4px 20px rgba(0,0,0,.9)",
+}}
         >
           Live interbank forex rates, zero hidden fees, and instant delivery of
           your Harbor Forex Card — trusted by students flying to{" "}
@@ -225,7 +266,7 @@ export function Hero() {
             <span key={i} className="flex shrink-0 items-center gap-2 text-sm">
               <span className="text-lg">{c.flag}</span>
               <span className="font-semibold text-white">{c.code}/INR</span>
-              <span className="text-white/70">₹{c.rate.toFixed(2)}</span>
+              <span className="text-white text-lg md:text-xl leading-relaxed drop-shadow-[0_2px_10px_rgba(0,0,0,0.9)]">₹{c.rate.toFixed(2)}</span>
               <span className={c.change >= 0 ? "text-emerald-300" : "text-rose-300"}>
                 {c.change >= 0 ? "▲" : "▼"} {Math.abs(c.change)}%
               </span>

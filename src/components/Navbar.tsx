@@ -55,12 +55,25 @@ export default function Navbar({
             <div className="flex items-center justify-between h-14 w-full gap-4">
 
               {/* Logo */}
-              <a
-                href="#"
-                className="flex items-center gap-3 group shrink-0"
-              >
-                <LogoIcon className="w-9 h-9 shrink-0 transition-transform duration-300 group-hover:scale-105" />
-              </a>
+             {/* Logo */}
+<a
+  href={isForex ? "/forex" : "/education"}
+  className="flex items-center shrink-0"
+>
+  <img
+  src={
+    isForex
+      ? "/logos/harbor-forex-logo.png"
+      : "/logos/harbor-finance-logo.png"
+  }
+  alt={isForex ? "Harbor Forex" : "Harbor Finance"}
+  className={`
+    ${isForex ? "h-14" : "h-16"}
+    w-auto object-contain
+  `}
+  draggable={false}
+/>
+</a>
 
               {/* Desktop Mode Switcher */}
               <div className="hidden md:flex items-center gap-4">
@@ -82,8 +95,8 @@ export default function Navbar({
   onClick={() => navigateTo('forex')}
   className={`flex items-center gap-2.5 px-7 py-3 rounded-full text-sm font-semibold tracking-wide transition-all duration-300 ${
     isForex
-      ? 'bg-gradient-to-r from-[#171b5d] to-[#421bb8] text-white shadow-sm'
-      : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
+  ? 'bg-[#05a784] text-white shadow-sm hover:bg-[#00A886]'
+  : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
   }`}
 >
   <Repeat2 size={18} />
@@ -99,7 +112,11 @@ export default function Navbar({
 
                 <button
                   onClick={() => setIsApplyModalOpen(true)}
-                  className="px-6 py-2.5 bg-gradient-to-r from-[#2563eb] to-[#6d4aff] hover:from-[#1d4ed8] hover:to-[#5b21b6] text-white text-sm font-medium rounded-full transition-all duration-300 shadow-md hover:shadow-lg hover:scale-[1.02] active:scale-95 flex items-center gap-2 whitespace-nowrap"
+                  className={`px-6 py-2.5 text-white text-sm font-medium rounded-full transition-all duration-300 shadow-md hover:shadow-lg hover:scale-[1.02] active:scale-95 flex items-center gap-2 whitespace-nowrap ${
+  isForex
+    ? 'bg-[#00BB94] hover:bg-[#00A886]'
+    : 'bg-gradient-to-r from-[#2563eb] to-[#6d4aff] hover:from-[#1d4ed8] hover:to-[#5b21b6]'
+}`}
                 >
                   <span>{isForex ? "Pay Now" : "Apply Now"}</span>
                   <span>→</span>
@@ -162,7 +179,7 @@ export default function Navbar({
                   }}
                   className={`flex items-center justify-center gap-1.5 py-3 px-2 rounded-lg text-xs sm:text-sm font-semibold transition-all ${
                     isForex
-                      ? 'bg-[#171b5d] text-white shadow'
+                      ? 'bg-[#00BB94] text-white shadow'
                       : 'text-slate-600 dark:text-slate-400'
                   }`}
                 >
@@ -178,7 +195,11 @@ export default function Navbar({
                   setIsMobileMenuOpen(false)
                   setIsApplyModalOpen(true)
                 }}
-                className="w-full py-3 bg-gradient-to-r from-[#2563eb] to-[#6d4aff] text-white text-center text-sm font-semibold rounded-xl shadow-md"
+                className={`w-full py-3 text-white text-center text-sm font-semibold rounded-xl shadow-md ${
+  isForex
+    ? 'bg-[#00BB94] hover:bg-[#00A886]'
+    : 'bg-gradient-to-r from-[#2563eb] to-[#6d4aff]'
+}`}
               >
                 {isForex ? "Pay Now" : "Apply Now"} →
               </button>

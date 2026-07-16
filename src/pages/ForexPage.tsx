@@ -1,4 +1,4 @@
-import type { ReactNode } from 'react'
+import { useEffect, type ReactNode } from 'react'
 import { SiteChrome } from '../components/shared/SiteChrome'
 import { Hero } from '../features/forex/components/Hero'
 import { CurrencyConverter } from '../features/forex/components/CurrencyConverter'
@@ -23,6 +23,28 @@ export function ForexShell({ children }: { children: ReactNode }) {
 }
 
 export default function ForexPage() {
+  useEffect(() => {
+    document.title = "Harbor Forex | International Payments";
+
+    let favicon = document.querySelector(
+      "link[rel*='icon']"
+    ) as HTMLLinkElement | null;
+
+    if (!favicon) {
+      favicon = document.createElement("link");
+      favicon.rel = "icon";
+      document.head.appendChild(favicon);
+    }
+
+    favicon.type = "image/png";
+    favicon.href = `/logos/forex-favicon.png?v=${Date.now()}`;
+
+    return () => {
+      document.title = "Harbor Finance";
+      favicon!.href = `/favicon.png?v=${Date.now()}`;
+    };
+  }, []);
+
   return (
     <ForexShell>
       <main>
@@ -39,5 +61,5 @@ export default function ForexPage() {
         <ContactCTA />
       </main>
     </ForexShell>
-  )
+  );
 }
