@@ -83,11 +83,7 @@ export default function FooterSection({
     className="h-14 w-auto"
   />
 ) : (
-  <LogoIcon
-    className="w-7 h-7"
-    primaryColor="#ffffff"
-    accentColor="#818CF8"
-  />
+  <LogoIcon className="w-40 h-auto" />
 )}
               {/* <span className="text-2xl font-medium tracking-tight text-white">Harbor Finance</span> */}
             </div>
