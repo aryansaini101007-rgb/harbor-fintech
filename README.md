@@ -12,7 +12,6 @@ Education Finance • Global Forex • Financial Technology
 
 <p align="center">
 
-<a href="#"><img src="https://img.shields.io/badge/Status-Private%20Repository-0F6FFF?style=for-the-badge&labelColor=0A0A0A" /></a>
 <a href="#license"><img src="https://img.shields.io/badge/License-Proprietary-1E88E5?style=for-the-badge&labelColor=0A0A0A" /></a>
 <a href="#"><img src="https://img.shields.io/badge/Company-Registered%20FinTech-4FC3F7?style=for-the-badge&labelColor=0A0A0A" /></a>
 
