@@ -55,9 +55,9 @@ export default function Navbar({
             <div className="flex items-center justify-between h-14 w-full gap-4">
 
               {/* Logo */}
-             {/* Logo */}
+             {/* Logo — returns to Harbor Fintech master landing */}
 <a
-  href={isForex ? "/forex" : "/education"}
+  href="/"
   className="flex items-center shrink-0"
 >
   <img

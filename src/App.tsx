@@ -3,28 +3,37 @@ import EducationPage from './pages/EducationPage'
 import ForexPage from './pages/ForexPage'
 import AboutPage from './pages/AboutPage'
 import ContactPage from './pages/ContactPage'
+import HarborLandingPage from './pages/HarborLandingPage'
 import { ForexDestinationPage } from './features/forex/DestinationPage'
 
 const PAGE_SEO: Record<string, { title: string; description: string }> = {
   '/': {
-    title: 'Harbor Finance | Education Loans for Study Abroad',
-    description: 'Harbor Finance helps students compare education loans from leading banks and NBFCs for studying in India and abroad. Get expert guidance for your education loan journey.',
+    title: 'Harbor Fintech | Smart Technology. Trusted Guidance. Global Dreams.',
+    description:
+      'Harbor Fintech is your gateway to global education — premium education loans, international payments and forex, powered by smart technology and trusted guidance.',
+  },
+  '/education-loan': {
+    title: 'Harbor Finance | Education Loans For Study Abroad',
+    description:
+      'Compare education loans from leading banks and NBFCs with expert guidance from Harbor Finance.',
   },
   '/education': {
-    title: 'Harbor Finance | Education Loans For Study Abroad ',
-    description: 'Compare education loans from leading banks and NBFCs with expert guidance from Harbor Finance.',
+    title: 'Harbor Finance | Education Loans For Study Abroad',
+    description:
+      'Compare education loans from leading banks and NBFCs with expert guidance from Harbor Finance.',
   },
   '/forex': {
     title: 'Harbor Forex — Move Your Money Faster',
-    description: 'Harbor Forex offers the best exchange rates, multi-currency forex cards, and instant international money transfers for students and travellers going abroad.',
+    description:
+      'Harbor Forex offers the best exchange rates, multi-currency forex cards, and instant international money transfers for students and travellers going abroad.',
   },
   '/about': {
-    title: 'About Harbor Finance',
-    description: 'Learn more about Harbor Finance and our education-loan guidance for students studying abroad.',
+    title: 'About Harbor Fintech',
+    description: 'Learn more about Harbor Fintech and our education-loan and forex guidance.',
   },
   '/contact': {
-    title: 'Contact Harbor Finance',
-    description: 'Contact Harbor Finance for education-loan guidance and study-abroad support.',
+    title: 'Contact Harbor Fintech',
+    description: 'Contact Harbor Fintech for education-loan guidance and forex support.',
   },
 }
 
@@ -41,17 +50,21 @@ function updateSeo(pathname: string) {
   const seo = pathname.startsWith('/forex/destinations/')
     ? {
         title: 'Study Abroad Destination Guide | Harbor Forex',
-        description: 'Study abroad destination guides, tuition details, forex rates and visa updates from Harbor Finance.',
+        description:
+          'Study abroad destination guides, tuition details, forex rates and visa updates from Harbor Fintech.',
       }
     : PAGE_SEO[pathname] ?? PAGE_SEO['/']
 
   document.title = seo.title
-  const description = document.querySelector('meta[name="description"]')
-  description?.setAttribute('content', seo.description)
+  document.querySelector('meta[name="description"]')?.setAttribute('content', seo.description)
   document.querySelector('meta[property="og:title"]')?.setAttribute('content', seo.title)
   document.querySelector('meta[property="og:description"]')?.setAttribute('content', seo.description)
-  document.querySelector('link[rel="canonical"]')?.setAttribute('href', `https://www.harborfintech.com${pathname}`)
-  document.querySelector('link[rel="icon"]')?.setAttribute('href', pathname.startsWith('/forex') ? '/forex/favicon.ico' : '/favicon.png')
+  document
+    .querySelector('link[rel="canonical"]')
+    ?.setAttribute('href', `https://www.harborfintech.com${pathname}`)
+  document
+    .querySelector('link[rel="icon"]')
+    ?.setAttribute('href', pathname.startsWith('/forex') ? '/forex/favicon.ico' : '/favicon.png')
 }
 
 export default function App() {
@@ -74,8 +87,10 @@ export default function App() {
     case '/contact':
       return <ContactPage />
     case '/education':
+    case '/education-loan':
+      return <EducationPage />
     case '/':
     default:
-      return <EducationPage />
+      return <HarborLandingPage />
   }
 }

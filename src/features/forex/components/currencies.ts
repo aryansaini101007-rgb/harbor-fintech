@@ -1,22 +1,23 @@
-// Static, representative reference rates (INR base) used for the live-feel
-// converter and ticker. Values are illustrative for the marketing site.
+// Currency catalog. Rates come exclusively from the live ExchangeRate-API feed
+// (see useLiveRates.ts and /api/rates.ts) – no hardcoded demo rates.
 export interface Currency {
   code: string;
   name: string;
   flag: string;
-  rate: number; // 1 unit of currency = rate INR
-  change: number; // % change for ticker
+  rate: number; // 1 unit of currency = rate INR (0 until first live fetch resolves)
+  change: number; // % change for ticker (placeholder – API plan does not include intraday change)
 }
 
+// rate is intentionally 0; consumers must render "—" when rate === 0.
 export const CURRENCIES: Currency[] = [
-  { code: "USD", name: "US Dollar", flag: "🇺🇸", rate: 83.42, change: 0.12 },
-  { code: "GBP", name: "British Pound", flag: "🇬🇧", rate: 105.87, change: -0.08 },
-  { code: "EUR", name: "Euro", flag: "🇪🇺", rate: 90.35, change: 0.21 },
-  { code: "CAD", name: "Canadian Dollar", flag: "🇨🇦", rate: 61.18, change: 0.05 },
-  { code: "AUD", name: "Australian Dollar", flag: "🇦🇺", rate: 55.42, change: -0.14 },
-  { code: "AED", name: "UAE Dirham", flag: "🇦🇪", rate: 22.71, change: 0.02 },
-  { code: "SGD", name: "Singapore Dollar", flag: "🇸🇬", rate: 62.14, change: 0.07 },
-  { code: "NZD", name: "New Zealand Dollar", flag: "🇳🇿", rate: 50.86, change: -0.05 },
-  { code: "CHF", name: "Swiss Franc", flag: "🇨🇭", rate: 93.72, change: 0.18 },
-  { code: "JPY", name: "Japanese Yen", flag: "🇯🇵", rate: 0.556, change: 0.09 },
+  { code: "USD", name: "US Dollar", flag: "🇺🇸", rate: 0, change: 0 },
+  { code: "GBP", name: "British Pound", flag: "🇬🇧", rate: 0, change: 0 },
+  { code: "EUR", name: "Euro", flag: "🇪🇺", rate: 0, change: 0 },
+  { code: "CAD", name: "Canadian Dollar", flag: "🇨🇦", rate: 0, change: 0 },
+  { code: "AUD", name: "Australian Dollar", flag: "🇦🇺", rate: 0, change: 0 },
+  { code: "AED", name: "UAE Dirham", flag: "🇦🇪", rate: 0, change: 0 },
+  { code: "SGD", name: "Singapore Dollar", flag: "🇸🇬", rate: 0, change: 0 },
+  { code: "NZD", name: "New Zealand Dollar", flag: "🇳🇿", rate: 0, change: 0 },
+  { code: "CHF", name: "Swiss Franc", flag: "🇨🇭", rate: 0, change: 0 },
+  { code: "JPY", name: "Japanese Yen", flag: "🇯🇵", rate: 0, change: 0 },
 ];
