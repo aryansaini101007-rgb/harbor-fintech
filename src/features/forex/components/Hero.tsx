@@ -116,7 +116,7 @@ export function Hero() {
             <span className="text-base leading-none">{p.flag}</span>
             <span className="text-[11px] font-bold text-white">{p.code}</span>
             <span className="text-[11px] font-semibold text-white/80">
-              ₹{p.data?.rate ? p.data.rate.toFixed(2) : "—"}
+              ₹{p.data?.rate.toFixed(2) ?? "—"}
             </span>
           </div>
         ))}
@@ -266,7 +266,7 @@ style={{
             <span key={i} className="flex shrink-0 items-center gap-2 text-sm">
               <span className="text-lg">{c.flag}</span>
               <span className="font-semibold text-white">{c.code}/INR</span>
-              <span className="text-white text-lg md:text-xl leading-relaxed drop-shadow-[0_2px_10px_rgba(0,0,0,0.9)]">₹{c.rate ? c.rate.toFixed(2) : "—"}</span>
+              <span className="text-white text-lg md:text-xl leading-relaxed drop-shadow-[0_2px_10px_rgba(0,0,0,0.9)]">₹{c.rate.toFixed(2)}</span>
               <span className={c.change >= 0 ? "text-emerald-300" : "text-rose-300"}>
                 {c.change >= 0 ? "▲" : "▼"} {Math.abs(c.change)}%
               </span>

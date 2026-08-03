@@ -251,21 +251,22 @@ export function ForexDestinationPage({ slug }: { slug: string }) {
             >
               <div className="relative aspect-[16/10] w-full overflow-hidden bg-secondary">
                 <img
-                  src={c.image || `https://picsum.photos/seed/${encodeURIComponent(c.name)}/800/500`}
-                  alt={c.name}
+                  src={c.image || dest.img}
+                  alt={`${c.name} campus`}
+                  width={960}
+                  height={600}
                   loading="lazy"
+                  decoding="async"
                   onError={(e) => {
                     const img = e.currentTarget;
                     if (img.dataset.fallback !== "1") {
                       img.dataset.fallback = "1";
-                      img.src = `https://picsum.photos/seed/${encodeURIComponent(c.name)}/800/500`;
-                    } else if (img.dataset.fallback === "1") {
-                      img.dataset.fallback = "2";
                       img.src = dest.img;
                     }
                   }}
                   className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
                 />
+
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
                 {c.ranking && (
                   <span className="absolute right-3 top-3 rounded-full bg-white/95 px-2.5 py-1 text-[10px] font-bold uppercase tracking-wide text-sky-deep shadow-soft">

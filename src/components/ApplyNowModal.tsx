@@ -124,7 +124,7 @@ export default function ApplyNowModal({
   setLoading(true)
 
   try {
-    const response = await fetch("/api/apply", {
+    const response = await fetch("/api/public/apply", {
       method: "POST",
 
       headers: {

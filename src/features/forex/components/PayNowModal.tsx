@@ -1,12 +1,11 @@
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, CreditCard, ShieldCheck, CheckCircle2, Lock } from "lucide-react";
-import { useLiveRates } from "./useLiveRates";
+import { CURRENCIES } from "./currencies";
 
 type Step = "form" | "success";
 
 export function PayNowModal() {
-  const { rates: CURRENCIES } = useLiveRates();
   const [open, setOpen] = useState(false);
   const [plan, setPlan] = useState<string | undefined>();
   const [step, setStep] = useState<Step>("form");

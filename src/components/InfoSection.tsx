@@ -1,3 +1,4 @@
+import { Link } from '@tanstack/react-router'
 import {
   ArrowRight,
   Plane,
@@ -133,10 +134,13 @@ export default function InfoSection() {
             </p>
 
             <div className="flex flex-wrap gap-4">
-              <button className="inline-flex items-center gap-4 bg-gradient-to-r from-[#0a2b8f] to-[#1457e8] text-white font-medium px-7 py-4 rounded-full shadow-lg hover:-translate-y-0.5 transition-transform">
+              <Link
+                to="/about"
+                className="inline-flex items-center gap-4 bg-gradient-to-r from-[#0a2b8f] to-[#1457e8] text-white font-medium px-7 py-4 rounded-full shadow-lg hover:-translate-y-0.5 transition-transform"
+              >
                 Know More About Us
                 <ArrowRight className="w-5 h-5" />
-              </button>
+              </Link>
 
               <button className="inline-flex items-center gap-4 bg-white dark:bg-white/10 border border-black/10 dark:border-white/10 text-black dark:text-white font-medium px-7 py-4 rounded-full shadow-sm">
                 Our Values
