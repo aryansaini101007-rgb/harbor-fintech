@@ -200,8 +200,8 @@ export default function RobotAssistantUI() {
   }
 
   return (
-    // Fixed wrapper holding everything seamlessly together
-    <div className="harfi-assistant fixed bottom-1 right-4 w-48 h-[275px] z-50 pointer-events-none md:pointer-events-auto flex flex-col items-center justify-end select-none">
+    // Fixed wrapper holding everything seamlessly together (desktop only to prevent mobile content obstruction)
+    <div className="harfi-assistant hidden md:flex fixed bottom-1 right-4 w-48 h-[275px] z-50 pointer-events-none md:pointer-events-auto flex-col items-center justify-end select-none">
       {/* --- CLOUD DIALOGUE BOX COMPONENT --- */}
       <div className="relative mb-1 w-44 bg-white/90 backdrop-blur-sm px-3 py-2 rounded-2xl border border-sky-100 shadow-md text-center flex flex-col justify-center animate-bounce [animation-duration:3s]">
         <p className="text-gray-800 text-[12px] font-medium leading-tight">
