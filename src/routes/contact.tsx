@@ -6,6 +6,12 @@ const ContactPage = lazy(() => import("../pages/ContactPage"));
 
 export const Route = createFileRoute("/contact")({
   head: () => ({
+    links: [
+      {
+        rel: "canonical",
+        href: "https://harborfintech.com/contact",
+      },
+    ],
     meta: [
       { title: "Contact Harbor Finance | Talk to an Education Loan Expert" },
       {
@@ -13,11 +19,23 @@ export const Route = createFileRoute("/contact")({
         content:
           "Speak with the Harbor Finance team in Noida about your education loan, lender options and study-abroad financing plans.",
       },
-      { property: "og:title", content: "Contact Harbor Finance" },
+      { property: "og:type", content: "website" },
+      { property: "og:url", content: "https://harborfintech.com/contact" },
+      { property: "og:title", content: "Contact Harbor Finance | Talk to an Education Loan Expert" },
       {
         property: "og:description",
-        content: "Get in touch for education loan guidance and study-abroad support.",
+        content:
+          "Speak with the Harbor Finance team in Noida about your education loan, lender options and study-abroad financing plans.",
       },
+      { property: "og:image", content: "https://harborfintech.com/og-image.png" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "Contact Harbor Finance | Talk to an Education Loan Expert" },
+      {
+        name: "twitter:description",
+        content:
+          "Speak with the Harbor Finance team in Noida about your education loan, lender options and study-abroad financing plans.",
+      },
+      { name: "twitter:image", content: "https://harborfintech.com/og-image.png" },
     ],
   }),
   component: () => (

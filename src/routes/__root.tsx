@@ -72,15 +72,64 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
   );
 }
 
+const organizationSchema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "FinancialService",
+      "@id": "https://harborfintech.com/#organization",
+      "name": "Harbor Finance",
+      "url": "https://harborfintech.com/",
+      "logo": "https://harborfintech.com/logos/harbor-finance-logo.png",
+      "image": "https://harborfintech.com/og-image.png",
+      "description":
+        "Harbor Finance helps students compare and secure education loans for studying abroad across 20+ partner banks and NBFCs with free 1:1 expert guidance.",
+      "telephone": "+91-9258756581",
+      "email": "ayush@harborfintech.com",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Noida",
+        "addressRegion": "Uttar Pradesh",
+        "addressCountry": "IN",
+      },
+      "priceRange": "Free Student Advisory",
+      "areaServed": "Global",
+      "knowsAbout": [
+        "Study Abroad Education Loans",
+        "Collateral-Free Student Loans",
+        "Overseas Education Financing",
+        "Student Forex Services",
+      ],
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://harborfintech.com/#website",
+      "url": "https://harborfintech.com/",
+      "name": "Harbor Finance",
+      "description": "Compare Education Loans for Studying Abroad across 20+ banks and NBFCs.",
+      "publisher": {
+        "@id": "https://harborfintech.com/#organization",
+      },
+    },
+  ],
+};
+
 export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()({
   head: () => ({
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { name: "author", content: "Harbor Finance" },
+      { name: "robots", content: "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" },
+      { name: "theme-color", content: "#07163d" },
+      { property: "og:site_name", content: "Harbor Finance" },
       { property: "og:type", content: "website" },
+      { property: "og:image", content: "https://harborfintech.com/og-image.png" },
+      { property: "og:image:width", content: "1200" },
+      { property: "og:image:height", content: "630" },
+      { property: "og:image:alt", content: "Harbor Finance — Education Loans for Studying Abroad" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:site", content: "@Lovable" },
+      { name: "twitter:image", content: "https://harborfintech.com/og-image.png" },
     ],
     links: [
       { rel: "icon", href: "/favicon.png", type: "image/png" },
@@ -89,6 +138,12 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       {
         rel: "stylesheet",
         href: "https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Inter:wght@400;500;600;700&display=swap",
+      },
+    ],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify(organizationSchema),
       },
     ],
   }),
@@ -105,6 +160,12 @@ function RootShell({ children }: { children: ReactNode }) {
         <HeadContent />
       </head>
       <body>
+        <a
+          href="#main-content"
+          className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[9999] focus:px-4 focus:py-2 focus:bg-indigo-600 focus:text-white focus:rounded-lg focus:shadow-xl focus:outline-none focus:ring-2 focus:ring-white font-medium"
+        >
+          Skip to main content
+        </a>
         {children}
         <Scripts />
       </body>

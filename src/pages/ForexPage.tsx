@@ -37,11 +37,11 @@ export default function ForexPage() {
     }
 
     favicon.type = "image/png";
-    favicon.href = `/logos/forex-favicon.png?v=${Date.now()}`;
+    favicon.href = "/logos/forex-favicon.png";
 
     return () => {
       document.title = "Harbor Finance";
-      favicon!.href = `/favicon.png?v=${Date.now()}`;
+      favicon!.href = "/favicon.png";
     };
   }, []);
 

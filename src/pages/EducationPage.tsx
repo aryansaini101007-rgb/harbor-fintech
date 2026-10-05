@@ -19,14 +19,16 @@ export default function EducationPage() {
         <div className="site-gradient-bg flex flex-col">
           <div className="landing-page flex flex-col">
             <SiteNavbar variant="education" />
-            <HeroSection />
+            <main id="main-content" tabIndex={-1} className="flex flex-col outline-none">
+              <HeroSection />
+              <InfoSection />
+              <PartnerBanksSection />
+              <HowItWorksSection />
+              <UseCasesSection />
+              <TestimonialsSection />
+              <FAQSection />
+            </main>
           </div>
-          <InfoSection />
-          <PartnerBanksSection />
-          <HowItWorksSection />
-          <UseCasesSection />
-          <TestimonialsSection />
-          <FAQSection />
           <SiteFooter variant="education" />
         </div>
         <BankModal />

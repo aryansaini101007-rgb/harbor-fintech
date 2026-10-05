@@ -103,7 +103,9 @@ export default function UseCasesSection() {
 
   return (
     <section
-      className="relative px-6 py-24 overflow-hidden"
+      id="destinations"
+      className="relative px-6 py-24 overflow-hidden scroll-mt-24"
+      aria-label="Popular Study Abroad Destinations"
       style={{ background: 'linear-gradient(180deg, #eef2ff 0%, #1a1f3a 55%, #0a0e24 100%)' }}
     >
       <style>{`
@@ -171,6 +173,10 @@ export default function UseCasesSection() {
               <img
                 src="https://images.unsplash.com/photo-1419242902214-272b31f9b4b1?auto=format&fit=crop&w=1600&q=80"
                 alt=""
+                loading="lazy"
+                decoding="async"
+                width={1600}
+                height={900}
                 className="absolute inset-0 w-full h-full object-cover"
               />
               <div
@@ -260,7 +266,8 @@ export default function UseCasesSection() {
         <button
           type="button"
           onClick={() => openCountry(c.id)}
-          className="w-9 h-9 rounded-full bg-white flex items-center justify-center hover:bg-[#4338CA] hover:text-white transition-colors"
+          aria-label={`Explore education loan options for ${c.name}`}
+          className="w-9 h-9 rounded-full bg-white flex items-center justify-center hover:bg-[#4338CA] hover:text-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-400"
         >
           <ArrowRight className="w-4 h-4" />
         </button>
@@ -322,7 +329,12 @@ export default function UseCasesSection() {
     ))}
   </div>
 
-  <button className="inline-flex items-center gap-2 text-white text-sm font-medium">
+  <button
+    type="button"
+    onClick={() => setRegion('All Regions')}
+    aria-label="View all study abroad countries and regions"
+    className="inline-flex items-center gap-2 text-white text-sm font-medium hover:text-indigo-300 transition-colors"
+  >
     View all countries
     <ArrowRight className="w-4 h-4" />
   </button>

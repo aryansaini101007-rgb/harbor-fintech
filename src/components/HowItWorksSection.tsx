@@ -68,7 +68,7 @@ export default function HowItWorksSection() {
   const goTo = (i: number) => setActiveStep(((i % STEPS.length) + STEPS.length) % STEPS.length)
 
   return (
-    <section className="px-6 py-24">
+    <section id="how-it-works" className="px-6 py-24 scroll-mt-24" aria-label="How Harbor Finance Works">
       <style>{`
         @keyframes stepModalIn {
           0% { opacity: 0; transform: translateY(16px) scale(0.96); }
@@ -137,6 +137,9 @@ export default function HowItWorksSection() {
 
       {isOpen && step && (
         <div
+          role="dialog"
+          aria-modal="true"
+          aria-label={step.title}
           className="fixed inset-0 z-50 flex items-center justify-center px-6"
           style={{ backgroundColor: 'rgba(0,0,0,0.5)' }}
           onClick={() => setActiveStep(null)}
@@ -148,6 +151,7 @@ export default function HowItWorksSection() {
           >
             <button
               onClick={() => setActiveStep(null)}
+              aria-label="Close step details modal"
               className="absolute top-6 right-6 w-9 h-9 rounded-full bg-[#F5F5F5] dark:bg-white/10 flex items-center justify-center hover:bg-black hover:text-white dark:text-white transition-colors"
             >
               <X className="w-4 h-4" />
@@ -183,12 +187,13 @@ export default function HowItWorksSection() {
             <div className="flex items-center justify-between">
               <button
                 onClick={() => goTo(activeStep! - 1)}
+                aria-label="Previous step"
                 className="w-10 h-10 rounded-full bg-[#F5F5F5] dark:bg-white/10 dark:text-white flex items-center justify-center hover:bg-black hover:text-white transition-colors"
               >
                 <ArrowLeft className="w-4 h-4" />
               </button>
 
-              <div className="flex gap-1.5">
+              <div className="flex gap-1.5" aria-hidden="true">
                 {STEPS.map((_, i) => (
                   <span
                     key={i}
@@ -200,6 +205,7 @@ export default function HowItWorksSection() {
 
               <button
                 onClick={() => goTo(activeStep! + 1)}
+                aria-label="Next step"
                 className="w-10 h-10 rounded-full bg-black text-white flex items-center justify-center hover:bg-gray-800 transition-colors"
               >
                 <ArrowRight className="w-4 h-4" />

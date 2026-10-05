@@ -38,7 +38,7 @@ const STATS = [
 
 export default function HeroSection() {
   return (
-    <main className="hero-page">
+    <section className="hero-page" aria-label="Education loan comparison and advisory">
       <div className="hero-glow hero-glow-one" />
       <div className="hero-glow hero-glow-two" />
       <div className="hero-glow hero-glow-three" />
@@ -46,29 +46,36 @@ export default function HeroSection() {
       <div className="hero-shell">
 
         <div className="hero-content-grid">
-          <section className="hero-copy">
+          <div className="hero-copy">
             <div className="hero-trust-pill">
               <ShieldCheck size={17} />
               <span>Trusted by Thousands worldwide</span>
               <Sparkles size={16} />
             </div>
 
-            <h1><span className="dark-line">Fund Your</span><span className="gradient-line">Global</span><span className="gradient-line">Education</span></h1>
+            <h1 className="hero-title">
+              <span className="dark-line">Compare Education Loans</span>
+              <span className="gradient-line">For Study Abroad</span>
+            </h1>
 
             <p>
               Compare education loans from 20+ banks and NBFCs, get the
               best options with expert guidance and end-to-end support.
             </p>
 
-            <button className="eligibility-button">
-              Check Eligibility
-              <span>→</span>
-            </button>
-          </section>
+            <a
+              href="#how-it-works"
+              className="eligibility-button inline-flex items-center gap-2"
+              aria-label="Check loan eligibility and how it works"
+            >
+              <span>Check Eligibility</span>
+              <span aria-hidden="true">→</span>
+            </a>
+          </div>
 
-          <section className="hero-visual-area">
+          <div className="hero-visual-area">
             <HeroVisual />
-          </section>
+          </div>
         </div>
 
         <div className="hero-stats">
@@ -98,6 +105,6 @@ export default function HeroSection() {
           })}
         </div>
       </div>
-    </main>
+    </section>
   )
 }

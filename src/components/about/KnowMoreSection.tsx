@@ -723,9 +723,9 @@ export default function KnowMoreSection() {
             Know More About Harbor Finance
           </span>
 
-          <h2 className="mt-5 font-display text-3xl font-bold leading-[1.12] tracking-tight text-[#0B1023] sm:text-4xl md:text-[2.75rem] dark:text-white">
+          <h1 className="mt-5 font-display text-3xl font-bold leading-[1.12] tracking-tight text-[#0B1023] sm:text-4xl md:text-[2.75rem] dark:text-white">
             Everything you should know before choosing Harbor Finance.
-          </h2>
+          </h1>
 
           <p className="mt-4 max-w-3xl text-base leading-relaxed text-slate-600 dark:text-slate-300">
             A closer look at who we are, how we work and why students trust us

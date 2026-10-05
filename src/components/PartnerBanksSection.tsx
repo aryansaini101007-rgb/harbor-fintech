@@ -57,7 +57,7 @@ export default function PartnerBanksSection() {
   const { openBank } = useBankModal()
 
   return (
-    <section className="px-4 sm:px-6 pt-8 pb-14 sm:pb-24 overflow-hidden">
+    <section id="lending-partners" className="px-4 sm:px-6 pt-8 pb-14 sm:pb-24 overflow-hidden scroll-mt-24" aria-label="Our Lending Partners Network">
       <style>{`
         @keyframes nodeFloat { 0%, 100% { transform: translateY(0px); } 50% { transform: translateY(-6px); } }
         @keyframes hubPulse { 0%, 100% { box-shadow: 0 0 0 0 rgba(67,56,202,0.25); } 50% { box-shadow: 0 0 0 14px rgba(67,56,202,0); } }
@@ -79,7 +79,12 @@ export default function PartnerBanksSection() {
             and hassle-free disbursal.
           </p>
 
-          <button className="inline-flex items-center gap-2 bg-black dark:bg-white text-white dark:text-black text-base font-medium px-7 py-3 rounded-full hover:bg-gray-800 dark:hover:bg-gray-200 transition-colors duration-200 mb-10">
+          <button
+            type="button"
+            onClick={() => openBank(NETWORK_BANKS[0].id)}
+            aria-label="Explore all partner banks and NBFCs"
+            className="inline-flex items-center gap-2 bg-black dark:bg-white text-white dark:text-black text-base font-medium px-7 py-3 rounded-full hover:bg-gray-800 dark:hover:bg-gray-200 transition-colors duration-200 mb-10"
+          >
             Explore All Partners
             <ArrowRight className="w-4 h-4" />
           </button>
@@ -157,8 +162,10 @@ export default function PartnerBanksSection() {
             return (
               <div key={bank.id} className="absolute" style={{ left: x, top: y, transform: 'translate(-50%, -50%)' }}>
                 <button
+                  type="button"
                   onClick={() => openBank(bank.id)}
-                  className="flex flex-col items-center gap-1.5 hover-float"
+                  aria-label={`View ${bank.name} education loan details and interest rates`}
+                  className="flex flex-col items-center gap-1.5 hover-float cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 rounded-full"
                   style={{ animation: `nodeFloat 4s ease-in-out ${i * 0.3}s infinite` }}
                 >
                   <BankLogo initials={bank.initials} color={bank.color} textColor={bank.textColor} domain={bank.domain} logo={bank.logo} name={bank.shortName} size={56} />

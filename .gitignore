@@ -15,10 +15,12 @@ dist-ssr
 .tanstack/**
 .nitro
 *.local
+*.zip
 
-# Wrangler / Cloudflare
+# Wrangler / Cloudflare / Vercel
 .wrangler/
 .dev.vars
+.vercel
 
 # Editor directories and files
 .vscode/*

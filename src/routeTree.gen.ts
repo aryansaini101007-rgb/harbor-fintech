@@ -14,6 +14,8 @@ import { Route as AboutRouteImport } from './routes/about'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as EducationRouteImport } from './routes/education'
 import { Route as ForexRouteImport } from './routes/forex'
+import { Route as PrivacyRouteImport } from './routes/privacy'
+import { Route as TermsRouteImport } from './routes/terms'
 import { Route as ForexIndexRouteImport } from './routes/forex.index'
 import { Route as ApiPublicApplyRouteImport } from './routes/api/public/apply'
 import { Route as ForexDestinationsSlugRouteImport } from './routes/forex.destinations.$slug'
@@ -43,6 +45,16 @@ const ForexRoute = ForexRouteImport.update({
   path: '/forex',
   getParentRoute: () => rootRouteImport,
 } as any)
+const PrivacyRoute = PrivacyRouteImport.update({
+  id: '/privacy',
+  path: '/privacy',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TermsRoute = TermsRouteImport.update({
+  id: '/terms',
+  path: '/terms',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ForexIndexRoute = ForexIndexRouteImport.update({
   id: '/',
   path: '/',
@@ -65,6 +77,8 @@ export interface FileRoutesByFullPath {
   '/contact': typeof ContactRoute
   '/education': typeof EducationRoute
   '/forex': typeof ForexRouteWithChildren
+  '/privacy': typeof PrivacyRoute
+  '/terms': typeof TermsRoute
   '/forex/': typeof ForexIndexRoute
   '/api/public/apply': typeof ApiPublicApplyRoute
   '/forex/destinations/$slug': typeof ForexDestinationsSlugRoute
@@ -74,6 +88,8 @@ export interface FileRoutesByTo {
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
   '/education': typeof EducationRoute
+  '/privacy': typeof PrivacyRoute
+  '/terms': typeof TermsRoute
   '/forex': typeof ForexIndexRoute
   '/api/public/apply': typeof ApiPublicApplyRoute
   '/forex/destinations/$slug': typeof ForexDestinationsSlugRoute
@@ -85,6 +101,8 @@ export interface FileRoutesById {
   '/contact': typeof ContactRoute
   '/education': typeof EducationRoute
   '/forex': typeof ForexRouteWithChildren
+  '/privacy': typeof PrivacyRoute
+  '/terms': typeof TermsRoute
   '/forex/': typeof ForexIndexRoute
   '/api/public/apply': typeof ApiPublicApplyRoute
   '/forex/destinations/$slug': typeof ForexDestinationsSlugRoute
@@ -97,6 +115,8 @@ export interface FileRouteTypes {
     | '/contact'
     | '/education'
     | '/forex'
+    | '/privacy'
+    | '/terms'
     | '/forex/'
     | '/api/public/apply'
     | '/forex/destinations/$slug'
@@ -106,6 +126,8 @@ export interface FileRouteTypes {
     | '/about'
     | '/contact'
     | '/education'
+    | '/privacy'
+    | '/terms'
     | '/forex'
     | '/api/public/apply'
     | '/forex/destinations/$slug'
@@ -116,6 +138,8 @@ export interface FileRouteTypes {
     | '/contact'
     | '/education'
     | '/forex'
+    | '/privacy'
+    | '/terms'
     | '/forex/'
     | '/api/public/apply'
     | '/forex/destinations/$slug'
@@ -127,6 +151,8 @@ export interface RootRouteChildren {
   ContactRoute: typeof ContactRoute
   EducationRoute: typeof EducationRoute
   ForexRoute: typeof ForexRouteWithChildren
+  PrivacyRoute: typeof PrivacyRoute
+  TermsRoute: typeof TermsRoute
   ApiPublicApplyRoute: typeof ApiPublicApplyRoute
 }
 
@@ -165,6 +191,20 @@ declare module '@tanstack/react-router' {
       path: '/forex'
       fullPath: '/forex'
       preLoaderRoute: typeof ForexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/privacy': {
+      id: '/privacy'
+      path: '/privacy'
+      fullPath: '/privacy'
+      preLoaderRoute: typeof PrivacyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/terms': {
+      id: '/terms'
+      path: '/terms'
+      fullPath: '/terms'
+      preLoaderRoute: typeof TermsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/forex/': {
@@ -209,6 +249,8 @@ const rootRouteChildren: RootRouteChildren = {
   ContactRoute: ContactRoute,
   EducationRoute: EducationRoute,
   ForexRoute: ForexRouteWithChildren,
+  PrivacyRoute: PrivacyRoute,
+  TermsRoute: TermsRoute,
   ApiPublicApplyRoute: ApiPublicApplyRoute,
 }
 export const routeTree = rootRouteImport

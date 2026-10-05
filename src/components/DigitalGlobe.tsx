@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useRef, useState } from 'react'
 import { Canvas, useFrame } from '@react-three/fiber'
 import * as THREE from 'three'
+import CssGlobeFallback from './CssGlobeFallback'
 
 const RADIUS = 1.55
 const DEG = Math.PI / 180
@@ -327,40 +328,50 @@ function GlobeGroup({ isMobile }: { isMobile: boolean }) {
 
 
 export default function DigitalGlobe() {
+  const [mounted, setMounted] = useState(false)
   const [isMobile, setIsMobile] = useState(false)
+  const [reducedMotion, setReducedMotion] = useState(false)
 
   useEffect(() => {
-    const media = window.matchMedia('(max-width: 600px)')
+    setMounted(true)
+    const mediaMobile = window.matchMedia('(max-width: 600px)')
+    const mediaMotion = window.matchMedia('(prefers-reduced-motion: reduce)')
 
     const updateDevice = () => {
-      setIsMobile(media.matches)
+      setIsMobile(mediaMobile.matches)
+      setReducedMotion(mediaMotion.matches)
     }
 
     updateDevice()
-    media.addEventListener('change', updateDevice)
+    mediaMobile.addEventListener('change', updateDevice)
+    mediaMotion.addEventListener('change', updateDevice)
 
     return () => {
-      media.removeEventListener('change', updateDevice)
+      mediaMobile.removeEventListener('change', updateDevice)
+      mediaMotion.removeEventListener('change', updateDevice)
     }
   }, [])
+
+  if (!mounted) {
+    return <CssGlobeFallback />
+  }
 
   return (
     <div className="dg-globe-canvas">
       <Canvas
-      frameloop={isMobile ? 'demand' : 'always'}
+        frameloop={isMobile || reducedMotion ? 'demand' : 'always'}
         camera={{ position: [0, 0.1, 6.15], fov: 38 }}
         gl={{
-  antialias: true,
-  alpha: true,
-  powerPreference: 'high-performance',
-}}
-dpr={[1, 1.5]}
+          antialias: true,
+          alpha: true,
+          powerPreference: 'high-performance',
+        }}
+        dpr={[1, 1.5]}
         style={{ background: 'transparent' }}
         onCreated={({ gl }) => gl.setClearColor(0x000000, 0)}
       >
-        
         <ambientLight intensity={0.7} />
-       <GlobeGroup isMobile={isMobile} />
+        <GlobeGroup isMobile={isMobile || reducedMotion} />
       </Canvas>
     </div>
   )

@@ -28,7 +28,7 @@ export default function FAQSection() {
   const [openIndex, setOpenIndex] = useState<number | null>(0)
 
   return (
-    <section className="px-6 py-24">
+    <section id="faqs" className="px-6 py-24 scroll-mt-24" aria-label="Frequently Asked Questions">
       <div className="max-w-[88rem] mx-auto grid grid-cols-1 md:grid-cols-2 gap-12">
         <div>
           <h2 className="text-black dark:text-white text-5xl md:text-6xl font-medium leading-none mb-6" style={{ letterSpacing: '-0.04em' }}>
@@ -42,20 +42,28 @@ export default function FAQSection() {
         <div className="flex flex-col divide-y divide-black/10 dark:divide-white/10">
           {FAQS.map((faq, i) => {
             const isOpen = openIndex === i
+            const answerId = `faq-answer-${i}`
             return (
               <div key={faq.q} className="py-6">
                 <button
+                  type="button"
                   onClick={() => setOpenIndex(isOpen ? null : i)}
-                  className="w-full flex items-center justify-between text-left gap-4"
+                  aria-expanded={isOpen}
+                  aria-controls={answerId}
+                  className="w-full flex items-center justify-between text-left gap-4 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 rounded-lg p-1"
                 >
-                  <span className="text-black dark:text-white text-lg font-medium" style={{ letterSpacing: '-0.01em' }}>
+                  <h3 className="text-black dark:text-white text-lg font-medium" style={{ letterSpacing: '-0.01em' }}>
                     {faq.q}
-                  </span>
+                  </h3>
                   <span className="shrink-0 w-8 h-8 rounded-full bg-white dark:bg-white/10 flex items-center justify-center">
                     {isOpen ? <Minus className="w-4 h-4 text-black dark:text-white" /> : <Plus className="w-4 h-4 text-black dark:text-white" />}
                   </span>
                 </button>
-                {isOpen && <p className="text-black/60 dark:text-white/60 text-base leading-relaxed mt-4 max-w-lg">{faq.a}</p>}
+                {isOpen && (
+                  <p id={answerId} role="region" aria-label={faq.q} className="text-black/60 dark:text-white/60 text-base leading-relaxed mt-4 max-w-lg">
+                    {faq.a}
+                  </p>
+                )}
               </div>
             )
           })}

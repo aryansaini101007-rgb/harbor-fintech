@@ -166,29 +166,43 @@ const headGroup = useRef<THREE.Group>(null);
 }
 
 export default function RobotAssistantUI() {
+  const [mounted, setMounted] = useState(false)
   const [isMobile, setIsMobile] = useState(false)
+  const [reducedMotion, setReducedMotion] = useState(false)
 
   useEffect(() => {
-    const media = window.matchMedia('(max-width: 600px)')
+    // Defer robot assistant initialization so initial page load and hero render are prioritized
+    const timer = window.setTimeout(() => {
+      setMounted(true)
+    }, 400)
+
+    const mediaMobile = window.matchMedia('(max-width: 600px)')
+    const mediaMotion = window.matchMedia('(prefers-reduced-motion: reduce)')
 
     const updateDevice = () => {
-      setIsMobile(media.matches)
+      setIsMobile(mediaMobile.matches)
+      setReducedMotion(mediaMotion.matches)
     }
 
     updateDevice()
-    media.addEventListener('change', updateDevice)
+    mediaMobile.addEventListener('change', updateDevice)
+    mediaMotion.addEventListener('change', updateDevice)
 
     return () => {
-      media.removeEventListener('change', updateDevice)
+      window.clearTimeout(timer)
+      mediaMobile.removeEventListener('change', updateDevice)
+      mediaMotion.removeEventListener('change', updateDevice)
     }
   }, [])
 
+  if (!mounted) {
+    return null
+  }
+
   return (
     // Fixed wrapper holding everything seamlessly together
-    
-     <div className="harfi-assistant fixed bottom-1 right-4 w-48 h-[275px] z-50 pointer-events-none md:pointer-events-auto flex flex-col items-center justify-end select-none">
+    <div className="harfi-assistant fixed bottom-1 right-4 w-48 h-[275px] z-50 pointer-events-none md:pointer-events-auto flex flex-col items-center justify-end select-none">
       {/* --- CLOUD DIALOGUE BOX COMPONENT --- */}
-      {/* Reduced bottom margin to mb-1 to bring it directly closer to the robot's head */}
       <div className="relative mb-1 w-44 bg-white/90 backdrop-blur-sm px-3 py-2 rounded-2xl border border-sky-100 shadow-md text-center flex flex-col justify-center animate-bounce [animation-duration:3s]">
         <p className="text-gray-800 text-[12px] font-medium leading-tight">
           Hey, I am <span className="font-bold text-gray-900">HarFI</span>
@@ -205,48 +219,46 @@ export default function RobotAssistantUI() {
       </div>
 
       {/* --- ROBOT CANVAS VIEWPORT --- */}
-      {/* Slightly shifted down to line up the head perfectly with the dialog notch */}
       <div className="w-full h-44 filter drop-shadow-xl -mt-2">
-       <Canvas
-       frameloop={isMobile ? 'demand' : 'always'}
-  camera={{ position: [0, 0, 1.8], fov: 45 }}
-dpr={[1, 2]}
-  gl={{
-    antialias: true,
-    alpha: true,
-    powerPreference: 'high-performance',
-  }}
->
-  <ambientLight intensity={0.8} />
+        <Canvas
+          frameloop={isMobile || reducedMotion ? 'demand' : 'always'}
+          camera={{ position: [0, 0, 1.8], fov: 45 }}
+          dpr={[1, 1.5]}
+          gl={{
+            antialias: true,
+            alpha: true,
+            powerPreference: 'high-performance',
+          }}
+        >
+          <ambientLight intensity={0.8} />
 
-  <directionalLight
-    position={[2, 4, 3]}
-    intensity={1.5}
-  />
+          <directionalLight
+            position={[2, 4, 3]}
+            intensity={1.5}
+          />
 
-  <directionalLight
-    position={[-2, 1, 2]}
-    intensity={0.5}
-    color="#B3E5FC"
-  />
+          <directionalLight
+            position={[-2, 1, 2]}
+            intensity={0.5}
+            color="#B3E5FC"
+          />
 
- <pointLight position={[0, 0, 2]} intensity={0.4} />
+          <pointLight position={[0, 0, 2]} intensity={0.4} />
 
-  <FriendlyRobot isMobile={isMobile} />
+          <FriendlyRobot isMobile={isMobile || reducedMotion} />
 
-  {!isMobile && (
-  <OrbitControls 
-    enableZoom={false} 
-    enablePan={false}
-    maxPolarAngle={Math.PI / 1.8}
-    minPolarAngle={Math.PI / 2.3}
-    maxAzimuthAngle={Math.PI / 6}
-    minAzimuthAngle={-Math.PI / 6}
-  />
-)}
-</Canvas>
+          {!isMobile && !reducedMotion && (
+            <OrbitControls 
+              enableZoom={false} 
+              enablePan={false}
+              maxPolarAngle={Math.PI / 1.8}
+              minPolarAngle={Math.PI / 2.3}
+              maxAzimuthAngle={Math.PI / 6}
+              minAzimuthAngle={-Math.PI / 6}
+            />
+          )}
+        </Canvas>
       </div>
-
     </div>
   );
 }
