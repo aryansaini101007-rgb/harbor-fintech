@@ -26,22 +26,34 @@ export default function ForexPage() {
   useEffect(() => {
     document.title = "Harbor Forex | International Payments";
 
-    let favicon = document.querySelector(
-      "link[rel*='icon']"
-    ) as HTMLLinkElement | null;
+    const iconLinks = Array.from(
+      document.querySelectorAll<HTMLLinkElement>("link[rel*='icon']")
+    );
+    const originalHrefs = iconLinks.map((link) => link.getAttribute("href") || "");
 
-    if (!favicon) {
-      favicon = document.createElement("link");
-      favicon.rel = "icon";
-      document.head.appendChild(favicon);
+    if (iconLinks.length === 0) {
+      const fallbackLink = document.createElement("link");
+      fallbackLink.rel = "icon";
+      fallbackLink.type = "image/png";
+      fallbackLink.href = "/logos/forex-favicon.png";
+      document.head.appendChild(fallbackLink);
+      iconLinks.push(fallbackLink);
+      originalHrefs.push("/favicon.png");
+    } else {
+      iconLinks.forEach((link) => {
+        link.href = "/logos/forex-favicon.png";
+      });
     }
-
-    favicon.type = "image/png";
-    favicon.href = "/logos/forex-favicon.png";
 
     return () => {
       document.title = "Harbor Finance";
-      favicon!.href = "/favicon.png";
+      iconLinks.forEach((link, idx) => {
+        if (originalHrefs[idx]) {
+          link.href = originalHrefs[idx];
+        } else {
+          link.href = "/favicon.png";
+        }
+      });
     };
   }, []);
 
