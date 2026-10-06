@@ -34,8 +34,8 @@ export default function FooterSection({
             </p>
             <p className="text-white/60 text-sm max-w-xs mt-3 leading-relaxed mb-6">
               {isForex
-                ? "Fast, secure and transparent forex services for students studying abroad. Get competitive exchange rates, international money transfers and prepaid forex cards."
-                : "Compare study abroad education loans from 20+ banks and NBFCs — free expert guidance, 48-hour sanction, collateral-free options."}
+                ? "Fast, secure and transparent forex services for students studying abroad. Competitive exchange rates, student forex cards, and international university fee transfers."
+                : "Compare study abroad education loans from 20+ banks and NBFCs in India. Free expert guidance, collateral-free student loan options, and fast 48-hour sanctions."}
             </p>
 
             <ul className="flex flex-col gap-3">
@@ -119,10 +119,11 @@ export default function FooterSection({
                 Resources
               </h3>
               <ul className="flex flex-col gap-2.5">
-                <li><a href="/#how-it-works" className="text-white/60 hover:text-white text-sm transition-colors">Eligibility Checker</a></li>
+                <li><a href="/#how-it-works" className="text-white/60 hover:text-white text-sm transition-colors">Loan Eligibility Checker</a></li>
                 <li><a href="/#faqs" className="text-white/60 hover:text-white text-sm transition-colors">Education Loan FAQs</a></li>
-                <li><a href="/#how-it-works" className="text-white/60 hover:text-white text-sm transition-colors">Document Checklist</a></li>
+                <li><a href="/#how-it-works" className="text-white/60 hover:text-white text-sm transition-colors">Required Loan Documents</a></li>
                 <li><Link to="/about" className="text-white/60 hover:text-white text-sm transition-colors">Financing Methodology</Link></li>
+                <li><Link to="/forex" className="text-white/60 hover:text-white text-sm transition-colors">Student Forex Services</Link></li>
               </ul>
             </div>
 

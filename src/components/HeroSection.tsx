@@ -54,13 +54,14 @@ export default function HeroSection() {
             </div>
 
             <h1 className="hero-title">
-              <span className="dark-line">Compare Education Loans</span>
-              <span className="gradient-line">For Study Abroad</span>
+              <span className="dark-line">Compare Education Loans </span>
+              <span className="gradient-line">for Study Abroad</span>
             </h1>
 
             <p>
-              Compare education loans from 20+ banks and NBFCs, get the
-              best options with expert guidance and end-to-end support.
+              Explore education loan options from 20+ banks and NBFCs in India and overseas.
+              Compare interest rates, check collateral-free eligibility, and get free 1:1 expert
+              guidance from profile evaluation to fund disbursal.
             </p>
 
             <a

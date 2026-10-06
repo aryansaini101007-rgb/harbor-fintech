@@ -24,7 +24,7 @@ export function ForexShell({ children }: { children: ReactNode }) {
 
 export default function ForexPage() {
   useEffect(() => {
-    document.title = "Harbor Forex | International Payments";
+    document.title = "Harbor Forex — Student Forex & International Money Transfers | Harbor Finance";
 
     const iconLinks = Array.from(
       document.querySelectorAll<HTMLLinkElement>("link[rel*='icon']")

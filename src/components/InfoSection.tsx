@@ -21,7 +21,7 @@ const STEPS = [
     number: '01',
     icon: PhoneCall,
     title: 'Talk To Our Expert',
-    text: 'Compare 20+ banks and find the best loan options.',
+    text: 'Compare 20+ banks and NBFCs to find suitable loan options.',
     x: 40,
     y: 300,
   },
@@ -29,15 +29,15 @@ const STEPS = [
     number: '02',
     icon: ClipboardList,
     title: 'Apply with Ease',
-    text: 'Simple documentation and expert assistance at every step.',
+    text: 'Guided documentation for student and co-applicant profiles.',
     x: 250,
     y: 190,
   },
   {
     number: '03',
     icon: ShieldCheck,
-    title: 'Quick Approval',
-    text: 'Get fast approval and focus on your dreams.',
+    title: 'Quick Sanction',
+    text: 'Fast loan sanction letters for university admits and visas.',
     x: 470,
     y: 100,
   },
@@ -45,7 +45,7 @@ const STEPS = [
     number: '04',
     icon: Check,
     title: 'Easy Disbursal',
-    text: 'We support you until you achieve your global dreams.',
+    text: 'Timely tuition fee transfers and student living expense coverage.',
     x: 680,
     y: 20,
   },
@@ -126,11 +126,11 @@ export default function InfoSection() {
             </h2>
 
             <p className="text-black/70 dark:text-white/65 text-lg md:text-xl leading-[2] max-w-[560px] mb-9">
-              We make studying abroad simple, accessible
+              We help students navigate overseas education financing with clarity.
               <br className="hidden md:block" />
-              and stress-free with our expert guidance,
+              Compare secured and collateral-free loan options across
               <br className="hidden md:block" />
-              transparent process, and best loan options.
+              leading lenders in India, with free 1:1 guidance at every step.
             </p>
 
             <div className="flex flex-wrap gap-4">

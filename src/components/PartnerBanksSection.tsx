@@ -75,8 +75,9 @@ export default function PartnerBanksSection() {
             Real approvals<span className="text-[#4338CA] dark:text-[#818CF8]">.</span>
           </h2>
           <p className="text-black/60 dark:text-white/60 text-base leading-relaxed max-w-md mb-8">
-            Thousands of students trust our partner network every day. Get the best rates, fast approvals
-            and hassle-free disbursal.
+            Compare study abroad loans across leading public banks, private lenders, and specialized NBFCs in India.
+            Explore competitive interest rates, flexible repayment tenures, and collateral-free funding options
+            tailored to your academic destination.
           </p>
 
           <button

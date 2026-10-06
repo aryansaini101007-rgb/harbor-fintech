@@ -17,7 +17,7 @@ export const Route = createFileRoute("/education")({
       {
         name: "description",
         content:
-          "Compare education loans from 20+ banks and NBFCs with expert guidance from Harbor Finance — profile evaluation, documentation, processing and disbursal support.",
+          "Compare education loans for studying abroad across 20+ banks and NBFCs in India. Check eligibility for secured and collateral-free student loans with free 1:1 expert guidance.",
       },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "https://harborfintech.com/education" },
@@ -25,7 +25,7 @@ export const Route = createFileRoute("/education")({
       {
         property: "og:description",
         content:
-          "Compare education loans from 20+ banks and NBFCs with expert guidance from Harbor Finance — profile evaluation, documentation, processing and disbursal support.",
+          "Compare education loans for studying abroad across 20+ banks and NBFCs in India. Check eligibility for secured and collateral-free student loans with free 1:1 expert guidance.",
       },
       { property: "og:image", content: "https://harborfintech.com/og-image.png" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -33,7 +33,7 @@ export const Route = createFileRoute("/education")({
       {
         name: "twitter:description",
         content:
-          "Compare education loans from 20+ banks and NBFCs with expert guidance from Harbor Finance — profile evaluation, documentation, processing and disbursal support.",
+          "Compare education loans for studying abroad across 20+ banks and NBFCs in India. Check eligibility for secured and collateral-free student loans with free 1:1 expert guidance.",
       },
       { name: "twitter:image", content: "https://harborfintech.com/og-image.png" },
     ],

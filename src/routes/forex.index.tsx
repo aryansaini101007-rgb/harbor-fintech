@@ -13,27 +13,27 @@ export const Route = createFileRoute("/forex/")({
       },
     ],
     meta: [
-      { title: "Harbor Forex — Move Your Money Faster | International Student Transfers" },
+      { title: "Harbor Forex — Student Forex & International Money Transfers | Harbor Finance" },
       {
         name: "description",
         content:
-          "Harbor Forex offers competitive exchange rates, multi-currency forex cards and international money transfers for students and travellers going abroad.",
+          "Fast, transparent student forex for studying abroad. Compare competitive exchange rates, get multi-currency student forex cards, and make international university fee transfers.",
       },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "https://harborfintech.com/forex" },
-      { property: "og:title", content: "Harbor Forex — Move Your Money Faster | International Student Transfers" },
+      { property: "og:title", content: "Harbor Forex — Student Forex & International Money Transfers | Harbor Finance" },
       {
         property: "og:description",
         content:
-          "Forex cards, live rates and international transfers built for students studying abroad.",
+          "Multi-currency student forex cards, live exchange rates, and international university fee transfers built for studying abroad.",
       },
       { property: "og:image", content: "https://harborfintech.com/og-image.png" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:title", content: "Harbor Forex — Move Your Money Faster | International Student Transfers" },
+      { name: "twitter:title", content: "Harbor Forex — Student Forex & International Money Transfers | Harbor Finance" },
       {
         name: "twitter:description",
         content:
-          "Forex cards, live rates and international transfers built for students studying abroad.",
+          "Multi-currency student forex cards, live exchange rates, and international university fee transfers built for studying abroad.",
       },
       { name: "twitter:image", content: "https://harborfintech.com/og-image.png" },
     ],

@@ -95,10 +95,14 @@ const organizationSchema = {
       "priceRange": "Free Student Advisory",
       "areaServed": "Global",
       "knowsAbout": [
+        "Education Loans in India",
         "Study Abroad Education Loans",
+        "Education Loans for Higher Studies",
         "Collateral-Free Student Loans",
         "Overseas Education Financing",
+        "Education Loan Eligibility and Interest Rates",
         "Student Forex Services",
+        "International Money Transfer for Students",
       ],
     },
     {

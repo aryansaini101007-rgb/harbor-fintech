@@ -21,11 +21,11 @@ const STATS = [
 ]
 
 const FEATURES = [
-  { icon: GraduationCap, title: 'Global Exposure', body: 'Experience diverse cultures and global perspectives' },
-  { icon: Landmark, title: 'Career Opportunities', body: 'Access to international career opportunities' },
-  { icon: Network, title: 'Quality Education', body: 'World-class education from top ranked universities' },
-  { icon: ShieldCheck, title: 'Personal Growth', body: 'Build independence, confidence and global mindset' },
-  { icon: User, title: 'Better Future', body: 'Invest in your future with better opportunities worldwide' },
+  { icon: GraduationCap, title: 'Tuition & University Fees', body: 'Financing options covering course tuition fees across top global universities' },
+  { icon: Landmark, title: 'Living Costs Abroad', body: 'Covers student accommodation, food, health insurance, and essential living expenses' },
+  { icon: Network, title: 'Collateral-Free Options', body: 'Unsecured loan options up to ₹1 Crore+ based on admit, course, and co-borrower profile' },
+  { icon: ShieldCheck, title: 'Visa-Compliant Sanctions', body: 'Official sanction letters accepted by embassies for USA (I-20), UK (CAS), Canada & more' },
+  { icon: User, title: 'Flexible Repayment & EMI', body: 'Student moratorium periods with EMI repayment starting only after course completion' },
 ]
 
 const REGIONS = ['All Regions', 'North America', 'Europe', 'Asia Pacific', 'Middle East', 'South America']
@@ -143,7 +143,7 @@ export default function UseCasesSection() {
               Experience your future, <span style={{ color: '#818CF8' }}>everywhere</span>
             </h2>
             <p className="text-white/60 text-base leading-relaxed mb-8 max-w-xs">
-              An immersive way to explore countries and their top universities.
+              Explore education loan options for top study destinations including the USA, UK, Canada, Australia, Germany & Ireland.
             </p>
 
             <div className="flex items-center gap-1.5 text-white/50 text-sm mb-8">
